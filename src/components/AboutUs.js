@@ -2,10 +2,8 @@
 import { Typography, Row, Col, Card, Progress, Timeline } from "antd";
 import {
   TeamOutlined,
-  TrophyOutlined,
   CheckCircleOutlined,
   RocketOutlined,
-  HistoryOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
 

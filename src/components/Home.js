@@ -1,10 +1,9 @@
 // src/components/Home.js
 import React, { useRef } from "react";
-import { Button, Card, Row, Col, Typography, Carousel } from "antd";
+import { Card, Row, Col, Typography, Carousel } from "antd";
 import {
   LeftOutlined,
   RightOutlined,
-  CheckCircleOutlined,
 } from "@ant-design/icons";
 import cover_1 from "../assets/Cover_new1.jpg";
 import cover_2 from "../assets/Cover_new2.jpg";
@@ -19,14 +18,14 @@ import consultancy from "../assets/consultancy.jpg";
 import tower from "../assets/Residential-Tower.jpg";
 import Gas from "../assets/GAS_Project.jpg";
 import complex from "../assets/complex.jpg";
-import { Link, NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { Link, NavLink } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
 
 const Home = () => {
   const carouselRef = useRef(null);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const heroSlides = [
     {
@@ -51,7 +50,7 @@ const Home = () => {
 
   const services = [
     {
-      icon: <img src={BIM} className="text-4xl" />,
+      icon: <img src={BIM} alt="BIM" className="text-4xl" />,
       title: "Building Information Modeling (BIM)",
       description:
         "Creating and managing digital representations of a building’s physical and functional characteristics. Our BIM designs ensure optimized coordination, improved collaboration, and enhanced visualization for seamless construction project management",
@@ -64,7 +63,7 @@ const Home = () => {
       ],
     },
     {
-      icon: <img src={pipelineServices} className="text-4xl" />,
+      icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
       title: "Pipeline Design",
       description:
         "Our pipeline design services provide efficient, reliable, and cost-effective solutions for fluid and gas transportation. Using advanced engineering and cutting-edge technology, we ensure pipelines meet safety, regulatory, and performance standards, while optimizing flow, durability, and sustainability.",
@@ -77,7 +76,7 @@ const Home = () => {
       ],
     },
     {
-      icon: <img src={oilAndGas} className="text-4xl" />,
+      icon: <img alt="BIM" src={oilAndGas} className="text-4xl" />,
       title: "Oil & Gas Design",
       description:
         "We provide comprehensive engineering and consultancy services for the oil and gas industry, focusing on optimizing exploration, production, and distribution. Our solutions enhance efficiency, reduce costs, and ensure compliance with safety and environmental standards, maximizing asset performance and value.",
@@ -90,7 +89,7 @@ const Home = () => {
       ],
     },
     {
-      icon: <img src={publicInfrastructure} className="text-4xl" />,
+      icon: <img alt="BIM" src={publicInfrastructure} className="text-4xl" />,
       title: "Public Infrastructure Design",
       description:
         "We design sustainable and efficient public infrastructure, focusing on roads, bridges, utilities, and urban facilities. Our solutions ensure safety, compliance, and environmental sustainability, improving community connectivity and mobility.",
@@ -101,7 +100,7 @@ const Home = () => {
       ],
     },
     {
-      icon: <img src={EPC} className="text-4xl" />,
+      icon: <img alt="BIM" src={EPC} className="text-4xl" />,
       title: "EPC (Engineering, Procurement, and Construction) Design",
       description:
         "We provide end-to-end EPC solutions, offering integrated engineering, procurement, and construction services. Our focus is on timely, cost-effective delivery, quality execution, and adherence to safety and sustainability standards",
@@ -112,7 +111,7 @@ const Home = () => {
       ],
     },
     {
-      icon: <img src={consultancy} className="text-4xl" />,
+      icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
       title: "Construction Design Consultancy",
       description:
         "Specializing in structural, civil, and architectural designs for residential, commercial, and industrial projects. We deliver accurate blueprints and technical layouts, ensuring successful construction and seamless project execution",
@@ -152,12 +151,12 @@ const Home = () => {
     },
   ];
 
-  const stats = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "50+", label: "Expert Engineers" },
-    { number: "20+", label: "Years Experience" },
-    { number: "100%", label: "Client Satisfaction" },
-  ];
+  // const stats = [
+  //   { number: "500+", label: "Projects Completed" },
+  //   { number: "50+", label: "Expert Engineers" },
+  //   { number: "20+", label: "Years Experience" },
+  //   { number: "100%", label: "Client Satisfaction" },
+  // ];
 
   return (
     <div className="h-full">

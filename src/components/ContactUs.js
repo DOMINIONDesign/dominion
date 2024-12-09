@@ -1,24 +1,24 @@
 // src/components/ContactUs.js
-import { useState } from 'react';
-import { 
-  Typography, 
-  Row, 
-  Col, 
-  Form, 
-  Input, 
-  Button, 
-  Card, 
+import { useState } from "react";
+import {
+  Typography,
+  Row,
+  Col,
+  Form,
+  Input,
+  Button,
+  Card,
   Select,
-  message 
-} from 'antd';
+  message,
+} from "antd";
 import {
   EnvironmentOutlined,
   PhoneOutlined,
   MailOutlined,
   ClockCircleOutlined,
   GlobalOutlined,
-  SendOutlined
-} from '@ant-design/icons';
+  SendOutlined,
+} from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
@@ -34,30 +34,30 @@ const ContactUs = () => {
       address: "123 Business Avenue, NY 10001",
       phone: "+91 7995952302",
       email: "design@dominionengg.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
     },
     {
       city: "London",
       address: "456 Engineering Street, London EC1A 1BB",
       phone: "+44 20 7123 4567",
       email: "design@dominionengg.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
     },
     {
       city: "Singapore",
       address: "789 Innovation Road, Singapore 018956",
       phone: "+65 6789 0123",
       email: "design@dominionengg.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM"
-    }
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
+    },
   ];
 
   const onFinish = (values) => {
     setLoading(true);
     // Simulate API call
     setTimeout(() => {
-      console.log('Form values:', values);
-      message.success('Thank you for your message. We will contact you soon!');
+      console.log("Form values:", values);
+      message.success("Thank you for your message. We will contact you soon!");
       form.resetFields();
       setLoading(false);
     }, 1500);
@@ -72,7 +72,7 @@ const ContactUs = () => {
             Contact Us
           </Title>
           <Paragraph className="text-lg text-gray-100 max-w-3xl mx-auto">
-            Get in touch with our team of experts for any inquiries about our 
+            Get in touch with our team of experts for any inquiries about our
             engineering services and solutions.
           </Paragraph>
         </div>
@@ -87,8 +87,8 @@ const ContactUs = () => {
               <div className="mb-8">
                 <Title level={3}>Get in Touch</Title>
                 <Paragraph className="text-gray-600">
-                  We're here to help and answer any question you might have. 
-                  We look forward to hearing from you.
+                  We're here to help and answer any question you might have. We
+                  look forward to hearing from you.
                 </Paragraph>
               </div>
 
@@ -96,7 +96,9 @@ const ContactUs = () => {
                 <div className="flex items-start">
                   <PhoneOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
-                    <Text strong className="block">Phone</Text>
+                    <Text strong className="block">
+                      Phone
+                    </Text>
                     <Text className="text-gray-600">+91 7995952302</Text>
                   </div>
                 </div>
@@ -104,18 +106,26 @@ const ContactUs = () => {
                 <div className="flex items-start">
                   <MailOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
-                    <Text strong className="block">Email</Text>
-                    <Text className="text-gray-600">design@dominionengg.com</Text>
+                    <Text strong className="block">
+                      Email
+                    </Text>
+                    <Text className="text-gray-600">
+                      design@dominionengg.com
+                    </Text>
                   </div>
                 </div>
 
                 <div className="flex items-start">
                   <GlobalOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
-                    <Text strong className="block">Global Headquarters</Text>
+                    <Text strong className="block">
+                      Global Headquarters
+                    </Text>
                     <Text className="text-gray-600">
-                      123 Engineering Way,<br />
-                      Tech City, TC 12345<br />
+                      123 Engineering Way,
+                      <br />
+                      Tech City, TC 12345
+                      <br />
                       United States
                     </Text>
                   </div>
@@ -124,9 +134,12 @@ const ContactUs = () => {
                 <div className="flex items-start">
                   <ClockCircleOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
-                    <Text strong className="block">Business Hours</Text>
+                    <Text strong className="block">
+                      Business Hours
+                    </Text>
                     <Text className="text-gray-600">
-                      Monday - Friday: 9:00 AM - 6:00 PM<br />
+                      Monday - Friday: 9:00 AM - 6:00 PM
+                      <br />
                       Saturday - Sunday: Closed
                     </Text>
                   </div>
@@ -137,7 +150,9 @@ const ContactUs = () => {
             {/* Contact Form */}
             <Col xs={24} lg={16}>
               <Card className="shadow-lg">
-                <Title level={3} className="mb-6">Send Us a Message</Title>
+                <Title level={3} className="mb-6">
+                  Send Us a Message
+                </Title>
                 <Form
                   form={form}
                   layout="vertical"
@@ -149,7 +164,12 @@ const ContactUs = () => {
                       <Form.Item
                         name="firstName"
                         label="First Name"
-                        rules={[{ required: true, message: 'Please enter your first name' }]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please enter your first name",
+                          },
+                        ]}
                       >
                         <Input size="large" />
                       </Form.Item>
@@ -158,7 +178,12 @@ const ContactUs = () => {
                       <Form.Item
                         name="lastName"
                         label="Last Name"
-                        rules={[{ required: true, message: 'Please enter your last name' }]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please enter your last name",
+                          },
+                        ]}
                       >
                         <Input size="large" />
                       </Form.Item>
@@ -171,8 +196,14 @@ const ContactUs = () => {
                         name="email"
                         label="Email"
                         rules={[
-                          { required: true, message: 'Please enter your email' },
-                          { type: 'email', message: 'Please enter a valid email' }
+                          {
+                            required: true,
+                            message: "Please enter your email",
+                          },
+                          {
+                            type: "email",
+                            message: "Please enter a valid email",
+                          },
                         ]}
                       >
                         <Input size="large" />
@@ -182,7 +213,12 @@ const ContactUs = () => {
                       <Form.Item
                         name="phone"
                         label="Phone Number"
-                        rules={[{ required: true, message: 'Please enter your phone number' }]}
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please enter your phone number",
+                          },
+                        ]}
                       >
                         <Input size="large" />
                       </Form.Item>
@@ -192,7 +228,9 @@ const ContactUs = () => {
                   <Form.Item
                     name="subject"
                     label="Subject"
-                    rules={[{ required: true, message: 'Please select a subject' }]}
+                    rules={[
+                      { required: true, message: "Please select a subject" },
+                    ]}
                   >
                     <Select size="large">
                       <Option value="general">General Inquiry</Option>
@@ -205,15 +243,17 @@ const ContactUs = () => {
                   <Form.Item
                     name="message"
                     label="Message"
-                    rules={[{ required: true, message: 'Please enter your message' }]}
+                    rules={[
+                      { required: true, message: "Please enter your message" },
+                    ]}
                   >
                     <TextArea rows={6} />
                   </Form.Item>
 
                   <Form.Item>
-                    <Button 
-                      type="primary" 
-                      size="large" 
+                    <Button
+                      type="primary"
+                      size="large"
                       htmlType="submit"
                       loading={loading}
                       icon={<SendOutlined />}
@@ -238,7 +278,7 @@ const ContactUs = () => {
           <Row gutter={[24, 24]}>
             {officeLocations.map((office, index) => (
               <Col xs={24} md={8} key={index}>
-                <Card 
+                <Card
                   className="h-full hover:shadow-lg transition-shadow duration-300"
                   title={
                     <div className="flex items-center">
@@ -249,19 +289,27 @@ const ContactUs = () => {
                 >
                   <div className="space-y-4">
                     <div>
-                      <Text strong className="block">Address:</Text>
+                      <Text strong className="block">
+                        Address:
+                      </Text>
                       <Text className="text-gray-600">{office.address}</Text>
                     </div>
                     <div>
-                      <Text strong className="block">Phone:</Text>
+                      <Text strong className="block">
+                        Phone:
+                      </Text>
                       <Text className="text-gray-600">{office.phone}</Text>
                     </div>
                     <div>
-                      <Text strong className="block">Email:</Text>
+                      <Text strong className="block">
+                        Email:
+                      </Text>
                       <Text className="text-gray-600">{office.email}</Text>
                     </div>
                     <div>
-                      <Text strong className="block">Hours:</Text>
+                      <Text strong className="block">
+                        Hours:
+                      </Text>
                       <Text className="text-gray-600">{office.hours}</Text>
                     </div>
                   </div>
