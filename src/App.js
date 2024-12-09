@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import AboutUs from './components/AboutUs';
-import Services from './components/Services';
+// import AboutUs from './components/AboutUs';
+// import Services from './components/Services';
 import Footer from './components/Footer';
-import ContactUs from './components/ContactUs';
+// import ContactUs from './components/ContactUs';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';

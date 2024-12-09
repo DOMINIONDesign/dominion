@@ -6,7 +6,6 @@ import {
   Col,
   Card,
   Button,
-  Tabs,
   Steps,
   Collapse,
   Badge,
@@ -16,7 +15,6 @@ import {
   SafetyCertificateOutlined,
   RocketOutlined,
   TeamOutlined,
-  ToolOutlined,
   DeploymentUnitOutlined,
   EnvironmentOutlined,
   AuditOutlined,
@@ -28,7 +26,7 @@ const { Title, Paragraph, Text } = Typography;
 const { Panel } = Collapse;
 
 const Services = () => {
-  const [activeTab, setActiveTab] = useState("1");
+  // const [activeTab, setActiveTab] = useState("1");
 
   const mainServices = [
     {

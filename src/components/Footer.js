@@ -1,5 +1,6 @@
 // src/components/Footer.js
-import { Layout, Row, Col, Typography, Input, Button, Divider } from 'antd';
+import { Row, Col, Typography } from "antd";
+import { Link } from "react-router-dom";
 import {
   FacebookOutlined,
   TwitterOutlined,
@@ -8,7 +9,7 @@ import {
   EnvironmentOutlined,
   PhoneOutlined,
   MailOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -30,22 +31,38 @@ const Footer = () => {
                 </span>
               </div>
               <Paragraph className="text-gray-400 mb-4">
-                Leading the way in innovative engineering solutions with over two
-                decades of excellence in structural design and consulting.
+                Leading the way in innovative engineering solutions with over
+                two decades of excellence in structural design and consulting.
               </Paragraph>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-blue-500 text-xl">
+                <Link
+                  to="#"
+                  className="text-gray-400 hover:text-blue-500
+                  text-xl"
+                >
                   <FacebookOutlined />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-500 text-xl">
+                </Link>
+                <Link
+                  to="#"
+                  className="text-gray-400 hover:text-blue-500
+                  text-xl"
+                >
                   <TwitterOutlined />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-500 text-xl">
+                </Link>
+                <Link
+                  to="#"
+                  className="text-gray-400 hover:text-blue-500
+                  text-xl"
+                >
                   <LinkedinOutlined />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-500 text-xl">
+                </Link>
+                <Link
+                  to="#"
+                  className="text-gray-400 hover:text-blue-500
+                  text-xl"
+                >
                   <InstagramOutlined />
-                </a>
+                </Link>
               </div>
             </div>
           </Col>
@@ -53,54 +70,55 @@ const Footer = () => {
           {/* Quick Links */}
           <Col xs={24} sm={12} md={8} lg={8}>
             <Title level={4} className="text-white mb-6">
-              <span className='text-white'>Quick Links</span>
+              <span className="text-white">Quick Links</span>
             </Title>
             <Row gutter={[16, 16]}>
               <Col span={12}>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       Services
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       Projects
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
+                      {" "}
                       Blog
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </Col>
               <Col span={12}>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       Careers
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       Contact
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500">
+                    <Link to="#" className="text-gray-400 hover:text-blue-500">
                       Terms of Service
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </Col>
@@ -110,13 +128,14 @@ const Footer = () => {
           {/* Contact Info */}
           <Col xs={24} sm={12} md={8} lg={8}>
             <Title level={4} className="text-white mb-6">
-            <span className='text-white'>Contact Us</span>
+              <span className="text-white">Contact Us</span>
             </Title>
             <div className="space-y-4">
               <div className="flex items-center">
                 <EnvironmentOutlined className="text-blue-500 text-xl mr-3" />
                 <Text className="text-gray-400">
-                  Madhav Enclave 4th floor, Masab Tank, Hyderabad, Telangana- 500028
+                  Madhav Enclave 4th floor, Masab Tank, Hyderabad, Telangana-
+                  500028
                 </Text>
               </div>
               <div className="flex items-center">
@@ -157,15 +176,17 @@ const Footer = () => {
             </Col>
             <Col>
               <div className="flex space-x-6">
-                <a href="#" className="text-gray-400 hover:text-blue-500">
+                <Link to="#" className="text-gray-400 hover:text-blue-500">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-500">
+                </Link>
+                <Link to="#" className="text-gray-400 hover:text-blue-500">
+                  {" "}
                   Terms of Service
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-500">
+                </Link>
+                <Link to="#" className="text-gray-400 hover:text-blue-500">
+                  {" "}
                   Cookie Policy
-                </a>
+                </Link>
               </div>
             </Col>
           </Row>
