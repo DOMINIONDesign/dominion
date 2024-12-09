@@ -52,7 +52,7 @@ const Navbar = () => {
     { key: "/projects", label: "Projects" },
     { key: "/contact", label: "Contact Us" },
   ];
-
+  console.log(isVisible);
   return (
     <div>
       {/* Main Navbar */}
