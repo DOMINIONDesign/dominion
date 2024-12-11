@@ -144,3 +144,21 @@ button.carousel-navigation:last-child:hover {
 .custom-link:hover::before {
   width: 100%;
 }
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar width */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scroll thumb color */
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Scroll thumb hover color */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Scroll track color */
+  border-radius: 10px;
+}
