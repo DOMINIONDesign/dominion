@@ -3,9 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Button, Drawer, Menu } from "antd";
 import {
   MenuOutlined,
-  PhoneOutlined,
-  MailOutlined,
-  ClockCircleOutlined,
 } from "@ant-design/icons";
 
 const Navbar = () => {
@@ -60,7 +57,7 @@ const Navbar = () => {
         className={`relative w-full z-50 transition-transform duration-300 }`}
       >
         {/* Top Info Bar */}
-        <div className="relative hidden lg:block bg-gray-950 text-white py-3">
+        {/* <div className="relative hidden lg:block bg-gray-950 text-white py-3">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center">
               <div className="flex space-x-6">
@@ -93,7 +90,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Navbar */}
         <nav className="absolute w-full">

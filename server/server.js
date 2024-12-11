@@ -1,9 +1,9 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 const app = express();
-const cors = require('cors');
-require('dotenv').config()
-// const userRouter = require('./routes/userRouter');
+const cors = require("cors");
+require("dotenv").config();
+const userRouter = require('./routes/userRouter');
 const port = process.env.PORT || 8080;
 // Middleware
 app.use(cors());
@@ -12,15 +12,15 @@ app.use(express.urlencoded({ extended: true })); // Add this to parse URL-encode
 
 // Serve static files from the React app (built)
 // Fix: Don't include index.html in static path
-app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, "../build")));
 
 // // API routes
-// app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 // Catch-all route for all other requests (SPA support)
-app.get('*', (req, res) => {
+app.get("*", (req, res) => {
   // Fix: Correct path to index.html
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
 // Start the server
