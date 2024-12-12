@@ -86,10 +86,7 @@ function App() {
       setLoading(true); // Show spinner
       try {
         // Send the form data via axios
-        const response = await axios.post(
-          "http://localhost:8080/user/mail",
-          formData
-        );
+        const response = await axios.post("/user/mail", formData);
         console.log("Form submitted successfully", response.data);
         // Reset the form and close popup
         setFormData({
