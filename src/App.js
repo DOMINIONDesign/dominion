@@ -138,8 +138,8 @@ function App() {
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"
-            width="34"
-            height="34"
+            width="24"
+            height="24"
             data-ux="Icon"
             class="x-el x-el-svg c2-1 c2-2 c2-q c2-r c2-s c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
           >
@@ -153,8 +153,8 @@ function App() {
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"
-            width="34"
-            height="34"
+            width="24"
+            height="24"
             data-ux="Icon"
             class="x-el x-el-svg c2-1 c2-2 c2-50 c2-r c2-s c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
           >
@@ -169,7 +169,7 @@ function App() {
       {/* Contact Us Popup */}
       {isPopupOpen && (
         <div
-          className="fixed bottom-20 right-4 bg-white rounded-lg shadow-lg w-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+          className="fixed bottom-20 right-4 mb-2 bg-white rounded-lg shadow-lg w-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
           style={{ maxHeight: "470px" }}
         >
           <div className="bg-blue-500 text-white px-4 py-6 w-full">
@@ -178,6 +178,11 @@ function App() {
           <div className="px-4 -mt-4">
             <span className="bg-gray-200 py-2 px-2 rounded-lg inline-block w-full">
               Hi! Let us know how we can help and we'll respond shortly.
+            </span>
+            <span className="inline-block -mt-2 ml-2">
+              <svg viewBox="0 0 24 24" fill="#E5E7EB" width="24" height="24">
+                <path d="M0.342304 14.5C7.35025 6.3293 3.35025 0.829295 0 0.0.0 0.0 5.4 2.1 32.3502 0.329295C32.3503 3.8293 -3.13481 20.7261 0.342304 14.5Z"></path>
+              </svg>
             </span>
           </div>
           <div className="px-4 pb-4">
