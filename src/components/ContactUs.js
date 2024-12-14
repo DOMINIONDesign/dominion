@@ -1,85 +1,65 @@
-// src/components/ContactUs.js
 import { useState } from "react";
+import { Typography, Row, Col, Form, Input, Button, Card } from "antd";
+import { toast } from "react-toastify";
+import axios from "axios";
 import {
-  Typography,
-  Row,
-  Col,
-  Form,
-  Input,
-  Button,
-  Card,
-  Select,
-  message,
-} from "antd";
-import {
-  EnvironmentOutlined,
-  PhoneOutlined,
   MailOutlined,
   ClockCircleOutlined,
   GlobalOutlined,
   SendOutlined,
 } from "@ant-design/icons";
+import Contact from "../assets/Contact-Us-2.jpg";
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
-const { Option } = Select;
 
 const ContactUs = () => {
-  const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+  const [form] = Form.useForm();
 
-  const officeLocations = [
-    {
-      city: "New York",
-      address: "123 Business Avenue, NY 10001",
-      phone: "+91 7995952302",
-      email: "design@dominionengg.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-    },
-    {
-      city: "London",
-      address: "456 Engineering Street, London EC1A 1BB",
-      phone: "+44 20 7123 4567",
-      email: "design@dominionengg.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-    },
-    {
-      city: "Singapore",
-      address: "789 Innovation Road, Singapore 018956",
-      phone: "+65 6789 0123",
-      email: "design@dominionengg.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-    },
-  ];
-
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     setLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form values:", values);
-      message.success("Thank you for your message. We will contact you soon!");
+    try {
+      const response = await axios.post("/user/mail", values);
+      console.log("Form submitted successfully", response.data);
+      toast.success("Form submitted successfully!!", {
+        autoClose: 3000,
+      });
+      // message.success("Thank you for your message. We will contact you soon!");
       form.resetFields();
+    } catch (error) {
+      toast.error("Error submitting form", {
+        autoClose: 3000,
+      });
+      // console.error("Error submitting form", error);
+      // message.error("Error submitting form");
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Title level={1} className="text-white mb-6">
-            Contact Us
-          </Title>
-          <Paragraph className="text-lg text-gray-100 max-w-3xl mx-auto">
-            Get in touch with our team of experts for any inquiries about our
-            engineering services and solutions.
-          </Paragraph>
+    <div className="min-h-screen bg-gray-200">
+      <section className="text-white relative h-80">
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0">
+          <img alt="Contact Us" src={Contact} className="w-full h-full" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col justify-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Title level={1} className="text-white text-center mb-6 pt-28">
+              <span className="text-white font-bold text-5xl">Contact Us</span>
+            </Title>
+            <Paragraph className="text-center text-xl text-[#FEFEFE] max-w-3xl mx-auto">
+              We're here to provide innovative engineering solutions tailored to
+              your needs. Get in touch with us to discuss how we can bring your
+              vision to life with precision and excellence.
+            </Paragraph>
+          </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-16">
+      <section className="pt-16 md:w-[90%] mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Row gutter={[48, 48]}>
             {/* Contact Information */}
@@ -93,16 +73,6 @@ const ContactUs = () => {
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <PhoneOutlined className="text-blue-600 text-xl mt-1 mr-4" />
-                  <div>
-                    <Text strong className="block">
-                      Phone
-                    </Text>
-                    <Text className="text-gray-600">+91 7995952302</Text>
-                  </div>
-                </div>
-
                 <div className="flex items-start">
                   <MailOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
@@ -122,10 +92,8 @@ const ContactUs = () => {
                       Global Headquarters
                     </Text>
                     <Text className="text-gray-600">
-                      123 Engineering Way,
-                      <br />
-                      Tech City, TC 12345
-                      <br />
+                      123 Engineering Way, <br />
+                      Tech City, TC 12345 <br />
                       United States
                     </Text>
                   </div>
@@ -138,8 +106,7 @@ const ContactUs = () => {
                       Business Hours
                     </Text>
                     <Text className="text-gray-600">
-                      Monday - Friday: 9:00 AM - 6:00 PM
-                      <br />
+                      Monday - Friday: 9:00 AM - 6:00 PM <br />
                       Saturday - Sunday: Closed
                     </Text>
                   </div>
@@ -149,8 +116,8 @@ const ContactUs = () => {
 
             {/* Contact Form */}
             <Col xs={24} lg={16}>
-              <Card className="shadow-lg">
-                <Title level={3} className="mb-6">
+              <Card className="shadow-lg bg-indigo-300">
+                <Title level={3} className="mb-6 !font-bold">
                   Send Us a Message
                 </Title>
                 <Form
@@ -158,31 +125,15 @@ const ContactUs = () => {
                   layout="vertical"
                   onFinish={onFinish}
                   requiredMark={false}
+                  className="!font-semibold"
                 >
                   <Row gutter={16}>
-                    <Col xs={24} md={12}>
+                    <Col xs={24} md={24}>
                       <Form.Item
-                        name="firstName"
-                        label="First Name"
+                        name="name"
+                        label="Name"
                         rules={[
-                          {
-                            required: true,
-                            message: "Please enter your first name",
-                          },
-                        ]}
-                      >
-                        <Input size="large" />
-                      </Form.Item>
-                    </Col>
-                    <Col xs={24} md={12}>
-                      <Form.Item
-                        name="lastName"
-                        label="Last Name"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please enter your last name",
-                          },
+                          { required: true, message: "Please enter your name" },
                         ]}
                       >
                         <Input size="large" />
@@ -211,12 +162,16 @@ const ContactUs = () => {
                     </Col>
                     <Col xs={24} md={12}>
                       <Form.Item
-                        name="phone"
+                        name="mobile"
                         label="Phone Number"
                         rules={[
                           {
                             required: true,
                             message: "Please enter your phone number",
+                          },
+                          {
+                            len: 10,
+                            message: "Phone number must be 10 digits",
                           },
                         ]}
                       >
@@ -224,21 +179,6 @@ const ContactUs = () => {
                       </Form.Item>
                     </Col>
                   </Row>
-
-                  <Form.Item
-                    name="subject"
-                    label="Subject"
-                    rules={[
-                      { required: true, message: "Please select a subject" },
-                    ]}
-                  >
-                    <Select size="large">
-                      <Option value="general">General Inquiry</Option>
-                      <Option value="services">Services Information</Option>
-                      <Option value="quote">Request a Quote</Option>
-                      <Option value="support">Technical Support</Option>
-                    </Select>
-                  </Form.Item>
 
                   <Form.Item
                     name="message"
@@ -269,69 +209,24 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Office Locations Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Google Map Section */}
+      <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Title level={2} className="text-center mb-12">
-            Our Global Offices
-          </Title>
-          <Row gutter={[24, 24]}>
-            {officeLocations.map((office, index) => (
-              <Col xs={24} md={8} key={index}>
-                <Card
-                  className="h-full hover:shadow-lg transition-shadow duration-300"
-                  title={
-                    <div className="flex items-center">
-                      <EnvironmentOutlined className="text-blue-600 mr-2" />
-                      <span>{office.city}</span>
-                    </div>
-                  }
-                >
-                  <div className="space-y-4">
-                    <div>
-                      <Text strong className="block">
-                        Address:
-                      </Text>
-                      <Text className="text-gray-600">{office.address}</Text>
-                    </div>
-                    <div>
-                      <Text strong className="block">
-                        Phone:
-                      </Text>
-                      <Text className="text-gray-600">{office.phone}</Text>
-                    </div>
-                    <div>
-                      <Text strong className="block">
-                        Email:
-                      </Text>
-                      <Text className="text-gray-600">{office.email}</Text>
-                    </div>
-                    <div>
-                      <Text strong className="block">
-                        Hours:
-                      </Text>
-                      <Text className="text-gray-600">{office.hours}</Text>
-                    </div>
-                  </div>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Title level={2} className="text-center mb-12">
-            Find Us
-          </Title>
-          <div className="h-96 bg-gray-200 rounded-lg">
-            {/* Replace this div with actual map integration */}
-            <div className="w-full h-full flex items-center justify-center text-gray-500">
-              Map Integration
+          <section className="py-16">
+            <Title level={2} className="text-center mb-12">
+              Find Us
+            </Title>
+            <div className="h-96 bg-gray-200 rounded-lg w-full overflow-hidden">
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.8368324924766!2d78.4411097!3d17.4004712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb971466381c91%3A0xc855906f2903c236!2sMasab%20Tank%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1702599999999!5m2!1sen!2sin"
+                className="w-full h-full rounded-lg border-0"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-          </div>
+          </section>
         </div>
       </section>
     </div>

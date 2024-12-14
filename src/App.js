@@ -7,9 +7,13 @@ import { toast, ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+import Services from "./components/Services";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { Input, Button, Spin } from "antd"; // Antd components
+import BimServices from "./components/Services/BIM_Services";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -119,9 +123,13 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />      
+      <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<AboutUs />} />
+        <Route exact path="/services" element={<Services />} />
+        <Route path="/services/bim" element={<BimServices />} />
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
@@ -263,6 +271,7 @@ function App() {
         </div>
       )}
       <ToastContainer />
+      {/* <Location /> */}
     </div>
   );
 }

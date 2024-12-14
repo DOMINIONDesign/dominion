@@ -160,3 +160,8 @@ button.carousel-navigation:last-child:hover {
   background: #f1f1f1; /* Scroll track color */
   border-radius: 10px;
 }
+.custom-card .ant-card-body{
+  padding:0px
+}
+
+

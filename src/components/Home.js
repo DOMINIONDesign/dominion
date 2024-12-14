@@ -5,7 +5,7 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import cover_1 from "../assets/Cover_new1.jpg";
 import cover_2 from "../assets/Cover_new2.jpg";
 import cover_3 from "../assets/Cover_new3.jpg";
-import BIM from "../assets/BIM2.jpg";
+import BIM from "../assets/BIM1.avif";
 import pipelineServices from "../assets/pipeline_services.jpg";
 import office from "../assets/Office (1).webp";
 import oilAndGas from "../assets/Oil&GAS.jpg";
@@ -49,9 +49,9 @@ const Home = () => {
   const services = [
     {
       icon: <img src={BIM} alt="BIM" className="text-4xl" />,
-      title: "Building Information Modeling (BIM)",
+      title: "BIM",
       description:
-        "Creating and managing digital representations of a building’s physical and functional characteristics. Our BIM designs ensure optimized coordination, improved collaboration, and enhanced visualization for seamless construction project management",
+        "We help our customers with BIM, provide solutions for optimized coordination, collaboration, and visualization.",
       features: [
         "Project Coordination",
         "3D Visualization",
@@ -62,9 +62,9 @@ const Home = () => {
     },
     {
       icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
-      title: "Pipeline Design",
+      title: "Pipeline",
       description:
-        "Our pipeline design services provide efficient, reliable, and cost-effective solutions for fluid and gas transportation. Using advanced engineering and cutting-edge technology, we ensure pipelines meet safety, regulatory, and performance standards, while optimizing flow, durability, and sustainability.",
+        "We deliver efficient, reliable, and sustainable pipeline designs that optimize flow and meet all safety and regulatory standards.",
       features: [
         "Customizable Design Solutions",
         "Advanced Flow Optimization",
@@ -75,9 +75,9 @@ const Home = () => {
     },
     {
       icon: <img alt="BIM" src={oilAndGas} className="text-4xl" />,
-      title: "Oil & Gas Design",
+      title: "Oil & Gas",
       description:
-        "We provide comprehensive engineering and consultancy services for the oil and gas industry, focusing on optimizing exploration, production, and distribution. Our solutions enhance efficiency, reduce costs, and ensure compliance with safety and environmental standards, maximizing asset performance and value.",
+        "We provide engineering and consultancy for oil and gas, optimizing efficiency and ensuring safety.",
       features: [
         "Advanced Technology Integration",
         "Safety and Compliance",
@@ -88,9 +88,9 @@ const Home = () => {
     },
     {
       icon: <img alt="BIM" src={publicInfrastructure} className="text-4xl" />,
-      title: "Public Infrastructure Design",
+      title: "Public Infrastructure",
       description:
-        "We design sustainable and efficient public infrastructure, focusing on roads, bridges, utilities, and urban facilities. Our solutions ensure safety, compliance, and environmental sustainability, improving community connectivity and mobility.",
+        "We design sustainable infrastructure, enhancing connectivity, safety, and environmental compliance.",
       features: [
         "Infrastructure Planning and Development",
         "Community and Environmental Impact Focus",
@@ -99,9 +99,9 @@ const Home = () => {
     },
     {
       icon: <img alt="BIM" src={EPC} className="text-4xl" />,
-      title: "EPC (Engineering, Procurement, and Construction) Design",
+      title: "EPC",
       description:
-        "We provide end-to-end EPC solutions, offering integrated engineering, procurement, and construction services. Our focus is on timely, cost-effective delivery, quality execution, and adherence to safety and sustainability standards",
+        "We offer end-to-end EPC solutions, delivering integrated services with a focus on cost-effectiveness, quality, and safety.",
       features: [
         "End-to-End Project Solutions",
         "Timely Delivery",
@@ -110,9 +110,31 @@ const Home = () => {
     },
     {
       icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
-      title: "Construction Design Consultancy",
+      title: "Construction Design",
       description:
-        "Specializing in structural, civil, and architectural designs for residential, commercial, and industrial projects. We deliver accurate blueprints and technical layouts, ensuring successful construction and seamless project execution",
+        "We specialize in structural, civil, and architectural designs, delivering precise blueprints for all project types",
+      features: [
+        "Project Feasibility Analysis",
+        "Collaborative Approach",
+        "Advanced Technology",
+      ],
+    },
+    {
+      icon: <img alt="BIM" src={EPC} className="text-4xl" />,
+      title: "EPC",
+      description:
+        "We offer end-to-end EPC solutions, delivering integrated services with a focus on cost-effectiveness, quality, and safety.",
+      features: [
+        "End-to-End Project Solutions",
+        "Timely Delivery",
+        "High-Quality Engineering and Construction",
+      ],
+    },
+    {
+      icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
+      title: "Construction Design",
+      description:
+        "We specialize in structural, civil, and architectural designs, delivering precise blueprints for all project types",
       features: [
         "Project Feasibility Analysis",
         "Collaborative Approach",
@@ -323,45 +345,47 @@ const Home = () => {
         </section>
 
         {/* Services Section */}
-        <section className="mt-16 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
+        <section className="my-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
           <Title
             level={2}
-            className="mb-12 pt-5"
+            className="max-w-7xl mb-12 pt-5 md:w-[95%]"
             data-aos="fade-left"
             data-aos-duration="500"
           >
             <span className="text-[#007add] pl-2 font-bold">Our Services</span>
           </Title>
           <Divider />
-          <div className="max-w-7xl  bg-white">
+          <div className="max-w-7xl ">
             <Row gutter={[24, 24]}>
               {services.map((service, index) => (
-                <Col xs={24} sm={12} lg={8} key={index}>
+                <Col xs={24} sm={12} lg={6} key={index}>
                   <Card
-                    className="bg-white shadow-lg p-2 rounded-xl shadow-blue-200 h-full hover:shadow-lg  transition-shadow duration-300 transform perspective-1000"
+                    className="custom-card shadow-lg rounded-s-3xl cursor-pointer shadow-blue-200 h-full hover:shadow-lg transition-shadow duration-300 transform perspective-1000"
                     bordered={false}
                     data-aos="flip-left"
                     data-aos-duration="1000"
                   >
-                    <div className="text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
-                      {typeof service.icon === "object" &&
-                      service.icon.type === "img" ? (
-                        <div className="flex justify-center mb-4">
-                          <img
-                            src={service.icon.props.src}
-                            alt={service.title}
-                            className="w-full h-48 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
-                          />
+                    <div className="relative text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
+                      {/* Image Wrapper */}
+                      <div className="relative">
+                        <img
+                          src={service.icon.props.src}
+                          alt={service.title}
+                          className="w-full h-72 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        />
+                        {/* Text Overlay */}
+                        <div className="absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-65 hover:bg-opacity-45 rounded-md px-4 pb-4">
+                          <p className="text-[#70eee8] font-bold text-lg mb-2 text-left">
+                            {service.title}
+                          </p>
+                          <p className="text-white text-md font-semibold text-left">
+                            {service.description}
+                          </p>
+                          <p className="text-[#8cd521] text-md font-bold text-left">
+                            Readmore
+                          </p>
                         </div>
-                      ) : (
-                        <div className="mb-4">{service.icon}</div>
-                      )}
-                      <Title level={4} className="mt-4 ">
-                        {service.title}
-                      </Title>
-                      <Paragraph className="text-gray-600 mb-4 ml-1 text-start ">
-                        {service.description}
-                      </Paragraph>
+                      </div>
                     </div>
                   </Card>
                 </Col>
@@ -371,14 +395,19 @@ const Home = () => {
         </section>
 
         {/* Featured Projects Section */}
-        <section
-          className="py-14 md:w-[90%] md:mx-auto max-md:w-full bg-red-300"
-          data-aos="zoom-in"
-        >
+        <section className="pb-14 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Title level={2} className="text-center mb-12">
-              Featured Projects
+            <Title
+              level={2}
+              className="mb-12 pt-5 md:w-[95%]"
+              data-aos="fade-left"
+              data-aos-duration="500"
+            >
+              <span className="text-[#007add] pl-2 font-bold">
+                Featured Projects
+              </span>
             </Title>
+            <Divider />
             <Row gutter={[24, 24]}>
               {projects.map((project, index) => (
                 <Col xs={24} md={8} key={index}>

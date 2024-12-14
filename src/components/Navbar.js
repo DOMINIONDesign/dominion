@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button, Drawer, Menu } from "antd";
-import {
-  MenuOutlined,
-} from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,32 +14,34 @@ const Navbar = () => {
   }, [location]);
   // Handle scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    if (location.pathname === "/") {
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
 
-      // Show second navbar when user scrolls past carousel (you can adjust this threshold as needed)
-      if (currentScrollY > 550) {
-        // Adjust the 500 value to your preference
-        setShowSecondNavbar(true);
-      } else {
-        setShowSecondNavbar(false);
-      }
+        // Show second navbar when user scrolls past carousel (adjust threshold)
+        if (currentScrollY > 550) {
+          setShowSecondNavbar(true);
+        } else {
+          setShowSecondNavbar(false);
+        }
 
-      // Scroll hiding logic (optional, if you want to hide the main navbar on scroll)
-      if (currentScrollY > lastScrollY) {
-        setIsVisible(false); // Scrolling down
-      } else {
-        setIsVisible(true); // Scrolling up
-      }
+        // Scroll hiding logic (optional)
+        if (currentScrollY > lastScrollY) {
+          setIsVisible(false); // Scrolling down
+        } else {
+          setIsVisible(true); // Scrolling up
+        }
 
-      setLastScrollY(currentScrollY);
-    };
+        setLastScrollY(currentScrollY);
+      };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+      window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+    return () => {};
+  }, [lastScrollY, location.pathname]);
+  console.log(isVisible);
   const menuItems = [
     { key: "/", label: "Home" },
     { key: "/about", label: "About Us" },
@@ -49,12 +49,13 @@ const Navbar = () => {
     { key: "/projects", label: "Projects" },
     { key: "/contact", label: "Contact Us" },
   ];
-  console.log(isVisible);
   return (
     <div>
       {/* Main Navbar */}
       <div
-        className={`relative w-full z-50 transition-transform duration-300 }`}
+        className={`relative w-full ${
+          location.pathname === "/" ? "z-50" : "z-50"
+        } transition-transform duration-300 }`}
       >
         {/* Top Info Bar */}
         {/* <div className="relative hidden lg:block bg-gray-950 text-white py-3">
@@ -93,8 +94,14 @@ const Navbar = () => {
         </div> */}
 
         {/* Main Navbar */}
-        <nav className="absolute w-full">
-          <div className="max-w-7xl mt-5 ml-4 mx-auto py-4 sm:px-6 lg:px-8">
+        <nav
+          className={`w-full ${
+            location.pathname !== "/"
+              ? "bg-transparent absolute pt-5"
+              : "bg-transparent absolute mt-5"
+          }`}
+        >
+          <div className="max-w-7xl  ml-4 mx-auto py-4 sm:px-6 lg:px-8">
             <div className="flex justify-start items-center h-20">
               <Link to="/" className="flex items-center space-x-3">
                 <svg

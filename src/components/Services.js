@@ -1,279 +1,204 @@
-// src/components/Services.js
-import { useState } from "react";
-import {
-  Typography,
-  Row,
-  Col,
-  Card,
-  Button,
-  Steps,
-  Collapse,
-  Badge,
-} from "antd";
-import {
-  BuildOutlined,
-  SafetyCertificateOutlined,
-  RocketOutlined,
-  TeamOutlined,
-  DeploymentUnitOutlined,
-  EnvironmentOutlined,
-  AuditOutlined,
-  QuestionCircleOutlined,
-  CheckCircleOutlined,
-} from "@ant-design/icons";
+import React from "react";
+import { Breadcrumb } from "antd";
+import { Typography } from "antd";
+import BIM from "../assets/BIM_services.jpg";
+import { Outlet } from "react-router-dom";
+import pipelineServices from "../assets/services_pipeline.webp";
+import oilAndGas from "../assets/services_oil&gas.jpg";
+import aboutus from "../assets/services_Background.avif";
+import publicInfrastructure from "../assets/services_public.png";
+// import Image from "../assets/services_Background.avif";
+import EPC from "../assets/services_EPC.jpeg";
+import consultancy from "../assets/services_construction.avif";
+import { Link } from "react-router-dom";
+const { Title, Paragraph } = Typography;
+const services = [
+  {
+    icon: <img src={BIM} alt="BIM" className="text-4xl" />,
+    title: "Building Information Model (BIM)",
+    link: "bim",
+    description:
+      "At Dominion Engineering Services, we assist our clients with Building Information Modeling (BIM) to enhance project outcomes. Our BIM solutions are designed to streamline coordination, foster better collaboration, and provide advanced visualization techniques. By integrating BIM into your project, we ensure improved project planning, cost efficiency, and faster delivery times. With a strong focus on sustainable design, our BIM approach helps optimize every aspect of your project, from conception to completion.",
+  },
+  {
+    icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
+    title: "Pipeline Design",
+    description:
+      "At Dominion Engineering Services, we deliver efficient, reliable, and sustainable pipeline designs that optimize flow and adhere to all safety and regulatory standards. Our solutions are crafted to ensure that each pipeline system is robust, cost-effective, and built to last, meeting the highest industry standards for safety and performance.",
+  },
+  {
+    icon: <img alt="BIM" src={oilAndGas} className="text-4xl" />,
+    title: "Oil & Gas",
+    description:
+      "At Dominion Engineering Services, we offer comprehensive engineering and consultancy services for the oil and gas industry, focusing on optimizing operational efficiency and ensuring the highest standards of safety. Our team of experts works closely with clients to design and implement solutions that enhance performance, reduce costs, and address complex challenges in exploration, production, and refining. We employ advanced technologies and best practices to ensure that every project adheres to industry regulations while minimizing environmental impact. Whether it's for upstream, midstream, or downstream operations, our commitment to excellence drives us to deliver innovative solutions tailored to the unique needs of the oil and gas sector.",
+  },
+  {
+    icon: <img alt="BIM" src={publicInfrastructure} className="text-4xl" />,
+    title: "Public Infrastructure Design",
+    description:
+      "At Dominion Engineering Services, we specialize in designing sustainable public infrastructure that enhances connectivity, safety, and environmental compliance. Our solutions focus on creating resilient systems that support urban growth, improve transportation networks, and promote long-term sustainability. We ensure that every project is built to meet regulatory standards while considering the future needs of communities and the environment.",
+  },
+  {
+    icon: <img alt="BIM" src={EPC} className="text-4xl" />,
+    title: "EPC",
+    description:
+      "Dominion Engineering Services offers comprehensive end-to-end Engineering, Procurement, and Construction (EPC) solutions. We deliver integrated services that focus on cost-effectiveness, quality, and safety, ensuring each project is completed on time and within budget. Our team works closely with clients from project inception to completion, providing seamless coordination and innovative solutions that meet industry standards and exceed expectations.",
+  },
+  {
+    icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
+    title: "Construction Design",
+    description:
+      "At Dominion Engineering Services, we specialize in structural, civil, and architectural designs, delivering precise blueprints tailored to all project types. Our team of experts ensures that every design is not only functional and efficient but also adheres to safety standards and regulatory requirements. We focus on creating innovative solutions that enhance the integrity, durability, and aesthetic appeal of each project, ensuring long-term success.",
+  },
+];
 
-const { Title, Paragraph, Text } = Typography;
-const { Panel } = Collapse;
-
-const Services = () => {
-  // const [activeTab, setActiveTab] = useState("1");
-
-  const mainServices = [
-    {
-      icon: <BuildOutlined className="text-4xl text-blue-600" />,
-      title: "Structural Engineering",
-      description:
-        "Comprehensive structural analysis and design for buildings and infrastructure",
-      features: [
-        "Structural Analysis",
-        "Design Optimization",
-        "Seismic Engineering",
-        "Foundation Design",
-      ],
-    },
-    {
-      icon: <SafetyCertificateOutlined className="text-4xl text-blue-600" />,
-      title: "Safety & Compliance",
-      description:
-        "Ensuring projects meet all safety standards and regulatory requirements",
-      features: [
-        "Safety Audits",
-        "Compliance Reviews",
-        "Risk Assessment",
-        "Safety Training",
-      ],
-    },
-    {
-      icon: <RocketOutlined className="text-4xl text-blue-600" />,
-      title: "Innovation Design",
-      description: "Cutting-edge design solutions using advanced technologies",
-      features: [
-        "3D Modeling",
-        "Parametric Design",
-        "Digital Twin Creation",
-        "BIM Integration",
-      ],
-    },
-    {
-      icon: <TeamOutlined className="text-4xl text-blue-600" />,
-      title: "Project Management",
-      description: "End-to-end project coordination and management services",
-      features: [
-        "Timeline Planning",
-        "Resource Allocation",
-        "Budget Management",
-        "Quality Control",
-      ],
-    },
-  ];
-
-  const processSteps = [
-    {
-      title: "Consultation",
-      description: "Initial meeting to understand project requirements",
-    },
-    {
-      title: "Analysis",
-      description: "Detailed analysis and feasibility study",
-    },
-    {
-      title: "Design",
-      description: "Creating comprehensive design solutions",
-    },
-    {
-      title: "Implementation",
-      description: "Executing the planned solutions",
-    },
-    {
-      title: "Quality Assurance",
-      description: "Testing and quality verification",
-    },
-  ];
-
-  const faqs = [
-    {
-      question: "What types of projects do you handle?",
-      answer:
-        "We handle a wide range of projects including commercial buildings, industrial facilities, infrastructure projects, and specialized engineering solutions.",
-    },
-    {
-      question: "How long does a typical project take?",
-      answer:
-        "Project duration varies based on scope and complexity. Small projects might take 2-3 months, while larger projects can extend to 1-2 years.",
-    },
-    {
-      question: "Do you offer sustainable engineering solutions?",
-      answer:
-        "Yes, we prioritize sustainable engineering practices and offer green building solutions, energy-efficient designs, and environmentally conscious alternatives.",
-    },
-    {
-      question: "What standards do you follow?",
-      answer:
-        "We adhere to international engineering standards including ISO, ASTM, and local building codes while implementing industry best practices.",
-    },
-  ];
-
+const ServicesPage = () => {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Title level={1} className="text-white mb-6">
-            Our Services
-          </Title>
-          <Paragraph className="text-lg text-gray-100 max-w-3xl mx-auto">
-            Comprehensive engineering solutions tailored to your specific needs,
-            delivered with expertise and precision.
-          </Paragraph>
+    <div className="bg-gray-200">
+      <section className="text-white relative h-80">
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0">
+          <img alt="about us" src={aboutus} className="w-full h-full" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col justify-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <Title level={1} className="text-white text-center pt-20">
+              <span className="text-white font-bold text-5xl">
+                Discover Our Expertise
+              </span>
+            </Title>
+            <Paragraph className="text-center text-xl text-gray-100 max-w-3xl mx-auto font-semibold">
+              Offering cutting-edge engineering solutions that drive success
+              through innovation, precision, and sustainability.
+            </Paragraph>
+          </div>
         </div>
       </section>
+      <div className="max-w-7xl px-4 sm:px-6 lg:px-8 md:w-[92%] mx-auto">
+        <div className="pt-4">
+          <Breadcrumb
+            className="text-md"
+            items={[
+              {
+                title: (
+                  <Link to="/" className="hover:text-blue-500 !text-black">
+                    Home
+                  </Link>
+                ),
+              },
+              {
+                title: (
+                  <Link
+                    to="/services"
+                    className="hover:text-blue-500 !text-black"
+                  >
+                    Services
+                  </Link>
+                ),
+              },
+            ]}
+          />
+        </div>
+        <div className="mt-2">
+          {services.map((service, index) => (
+            // This is where the animation div is added
+            <div
+              key={index}
+              className={`flex flex-col ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              } items-center gap-12 py-12 animate-fade-up`}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              {/* Image Card Section */}
+              <div className="w-full md:w-1/2">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-[400px] group">
+                  {/* Image Container */}
+                  <div className="relative w-full h-full">
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                      {React.cloneElement(service.icon, {
+                        className:
+                          "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 ",
+                        alt: service.title,
+                      })}
+                    </div>
 
-      {/* Main Services Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Title level={2} className="text-center mb-12">
-            Core Services
-          </Title>
-          <Row gutter={[24, 24]}>
-            {mainServices.map((service, index) => (
-              <Col xs={24} sm={12} lg={6} key={index}>
-                <Card
-                  className="h-full hover:shadow-lg transition-shadow duration-300"
-                  actions={[<Button type="link">Learn More</Button>]}
-                >
-                  <div className="text-center mb-6">
-                    {service.icon}
-                    <Title level={4} className="mt-4">
-                      {service.title}
-                    </Title>
-                    <Paragraph className="text-gray-600">
-                      {service.description}
-                    </Paragraph>
+                    {/* Overlay with Title */}
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                      <Title
+                        level={3}
+                        className="text-white mb-0 relative z-10"
+                      >
+                        {service.title}
+                      </Title>
+                    </div> */}
                   </div>
-                  <ul className="text-gray-600">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center mb-2">
-                        <CheckCircleOutlined className="text-green-500 mr-2" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      </section>
+                </div>
+              </div>
 
-      {/* Process Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Title level={2} className="text-center mb-12">
-            Our Process
-          </Title>
-          <Steps current={-1} items={processSteps} className="mb-12" />
-          <Row gutter={[24, 24]} className="mt-12">
-            {processSteps.map((step, index) => (
-              <Col xs={24} sm={12} md={8} lg={4.8} key={index}>
-                <Card className="h-full text-center">
-                  <Badge count={index + 1} className="mb-4">
-                    <div className="h-8"></div>
-                  </Badge>
-                  <Title level={4}>{step.title}</Title>
-                  <Paragraph className="text-gray-600">
-                    {step.description}
+              {/* Content Section */}
+              <div className="w-full md:w-1/2">
+                <div
+                  className={`space-y-6 ${
+                    index % 2 === 0 ? "md:pl-8" : "md:pr-8"
+                  }`}
+                >
+                  <Title level={2} className="text-3xl font-extrabold">
+                    <span className="text-[#DC143C] font-bold">
+                      {" "}
+                      {service.title}
+                    </span>
+                  </Title>
+
+                  <Paragraph className="text-lg text-gray-600">
+                    {service.description}
                   </Paragraph>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      </section>
 
-      {/* Industries Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Title level={2} className="text-center mb-12">
-            Industries We Serve
-          </Title>
-          <Row gutter={[24, 24]}>
-            <Col xs={24} sm={12} md={8}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <EnvironmentOutlined className="text-3xl text-blue-600 mb-4" />
-                <Title level={4}>Commercial</Title>
-                <Paragraph className="text-gray-600">
-                  Office buildings, retail spaces, and commercial complexes
-                </Paragraph>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={8}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <DeploymentUnitOutlined className="text-3xl text-blue-600 mb-4" />
-                <Title level={4}>Industrial</Title>
-                <Paragraph className="text-gray-600">
-                  Manufacturing facilities, warehouses, and industrial plants
-                </Paragraph>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} md={8}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <AuditOutlined className="text-3xl text-blue-600 mb-4" />
-                <Title level={4}>Infrastructure</Title>
-                <Paragraph className="text-gray-600">
-                  Bridges, roads, and public infrastructure projects
-                </Paragraph>
-              </Card>
-            </Col>
-          </Row>
+                  {/* <div className="space-y-4">
+                    <Title level={4} className="text-blue-600">
+                      Key Features
+                    </Title>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, featureIndex) => (
+                        <li
+                          key={featureIndex}
+                          className="flex items-start space-x-3"
+                        >
+                          <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                          <span className="text-gray-700 flex-1">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div> */}
+                  <Link to={`/services/${service.link}`}>
+                    <button className="mt-6 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center space-x-2 group">
+                      <span>Learn More</span>
+                      <svg
+                        className="w-4 h-4 transform transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
-
-      {/* FAQs Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Title level={2} className="text-center mb-12">
-            Frequently Asked Questions
-          </Title>
-          <Collapse className="max-w-3xl mx-auto">
-            {faqs.map((faq, index) => (
-              <Panel
-                header={faq.question}
-                key={index}
-                extra={<QuestionCircleOutlined />}
-              >
-                <Paragraph className="text-gray-600">{faq.answer}</Paragraph>
-              </Panel>
-            ))}
-          </Collapse>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="py-16 bg-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Title level={2} className="text-white mb-6">
-            Ready to Start Your Project?
-          </Title>
-          <Paragraph className="text-lg mb-8">
-            Contact us today for a free consultation and project assessment
-          </Paragraph>
-          <Button size="large" className="bg-white">
-            Get in Touch
-          </Button>
-        </div>
-      </section>
+      </div>
+      <Outlet />
     </div>
   );
 };
 
-export default Services;
+export default ServicesPage;
