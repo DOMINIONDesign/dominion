@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { transporter } = require("../utilities/mail");
 router.post("/mail", async (req, res) => {
-  const { email, name, mobile, message } = req.body;
-  console.log(req.body);
+  const { email, name, mobile="NA", message } = req.body;
   const mailOptions = {
     from: "shaikriyaz222@gmail.com",
     to: "shaikriyaz222@gmail.com",

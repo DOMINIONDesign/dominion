@@ -20,7 +20,10 @@ const ContactUs = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const response = await axios.post("/user/mail", values);
+      const response = await axios.post(
+        "http://localhost:8080/user/mail",
+        values
+      );
       console.log("Form submitted successfully", response.data);
       toast.success("Form submitted successfully!!", {
         autoClose: 3000,
@@ -89,12 +92,11 @@ const ContactUs = () => {
                   <GlobalOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
                     <Text strong className="block">
-                      Global Headquarters
+                      Headquarters
                     </Text>
                     <Text className="text-gray-600">
-                      123 Engineering Way, <br />
-                      Tech City, TC 12345 <br />
-                      United States
+                      Madhu Enclave 4th floor, Masab Tank, Hyderabad, Telangana-
+                      500028
                     </Text>
                   </div>
                 </div>
@@ -163,15 +165,11 @@ const ContactUs = () => {
                     <Col xs={24} md={12}>
                       <Form.Item
                         name="mobile"
-                        label="Phone Number"
+                        label="Phone Number (Optional)"
                         rules={[
                           {
-                            required: true,
-                            message: "Please enter your phone number",
-                          },
-                          {
-                            len: 10,
-                            message: "Phone number must be 10 digits",
+                            pattern: /^[0-9]+$/,
+                            message: "Phone number must contain only numbers",
                           },
                         ]}
                       >

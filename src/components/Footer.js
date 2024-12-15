@@ -147,7 +147,7 @@ const Footer = () => {
               <div className="flex items-center">
                 <EnvironmentOutlined className="text-blue-500 text-xl mr-3" />
                 <Text className="text-gray-400">
-                  Madhav Enclave 4th floor, Masab Tank, Hyderabad, Telangana-
+                  Madhu Enclave 4th floor, Masab Tank, Hyderabad, Telangana-
                   500028
                 </Text>
               </div>

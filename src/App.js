@@ -12,111 +12,126 @@ import ContactUs from "./components/ContactUs";
 import Services from "./components/Services";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { Input, Button, Spin } from "antd"; // Antd components
+import { Input, Button, Spin, Form } from "antd"; // Antd components
 import BimServices from "./components/Services/BIM_Services";
 import PipelineServices from "./components/Services/pipeline_services";
 import OilAndGas from "./components/Services/OilAndGas";
 import PublicInfrastructureDesign from "./components/Services/PublicInfrastructureDesign";
 import EPC from "./components/Services/EPC";
 import ConstructionDesign from "./components/Services/Construction";
-import Projects from "./components/projects";
+// import Projects from "./components/projects";
 
 function App() {
+  const [form] = Form.useForm();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   mobile: "",
+  //   message: "",
+  // });
 
   // State for error messages and loading state
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    message: "",
-  });
+  // const [errors, setErrors] = useState({
+  //   name: "",
+  //   email: "",
+  //   mobile: "",
+  //   message: "",
+  // });
   const [loading, setLoading] = useState(false); // loading state
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const validateForm = () => {
-    const newErrors = {};
-    let isValid = true;
+  // const validateForm = () => {
+  //   const newErrors = {};
+  //   let isValid = true;
 
-    // Validate name
-    if (!formData.name) {
-      newErrors.name = "Name is required";
-      isValid = false;
-    }
+  //   // Validate name
+  //   if (!formData.name) {
+  //     newErrors.name = "Name is required";
+  //     isValid = false;
+  //   }
 
-    // Validate email
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-      isValid = false;
-    }
+  //   // Validate email
+  //   if (!formData.email) {
+  //     newErrors.email = "Email is required";
+  //     isValid = false;
+  //   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+  //     newErrors.email = "Email is invalid";
+  //     isValid = false;
+  //   }
+  //   // Validate message
+  //   if (!formData.message) {
+  //     newErrors.message = "Message is required";
+  //     isValid = false;
+  //   }
 
-    // Validate mobile number
-    if (!formData.mobile) {
-      newErrors.mobile = "Mobile number is required";
-      isValid = false;
-    } else if (!/^\d{10}$/.test(formData.mobile)) {
-      newErrors.mobile = "Mobile number must be 10 digits";
-      isValid = false;
-    }
-
-    // Validate message
-    if (!formData.message) {
-      newErrors.message = "Message is required";
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
+  //   setErrors(newErrors);
+  //   return isValid;
+  // };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      setLoading(true); // Show spinner
-      try {
-        // Send the form data via axios
-        const response = await axios.post("/user/mail", formData);
-        console.log("Form submitted successfully", response.data);
-        // Reset the form and close popup
-        setFormData({
-          name: "",
-          email: "",
-          mobile: "",
-          message: "",
-        });
-        toast.success("Form submitted successfully!!", {
-          autoClose: 3000,
-        });
-        togglePopup();
-      } catch (error) {
-        toast.error("Error submitting form", {
-          autoClose: 3000,
-        });
-        console.error("Error submitting form", error);
-      } finally {
-        setLoading(false); // Hide spinner after response
-      }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (validateForm()) {
+  //     setLoading(true); // Show spinner
+  //     try {
+  //       // Send the form data via axios
+  //       const response = await axios.post("/user/mail", formData);
+  //       console.log("Form submitted successfully", response.data);
+  //       // Reset the form and close popup
+  //       setFormData({
+  //         name: "",
+  //         email: "",
+  //         mobile: "",
+  //         message: "",
+  //       });
+  //       toast.success("Form submitted successfully!!", {
+  //         autoClose: 3000,
+  //       });
+  //       togglePopup();
+  //     } catch (error) {
+  //       toast.error("Error submitting form", {
+  //         autoClose: 3000,
+  //       });
+  //       console.error("Error submitting form", error);
+  //     } finally {
+  //       setLoading(false); // Hide spinner after response
+  //     }
+  //   }
+  // };
+  const onFinish = async (values) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/user/mail",
+        values
+      );
+      console.log("Form submitted successfully", response.data);
+      toast.success("Form submitted successfully!!", {
+        autoClose: 3000,
+      });
+      // message.success("Thank you for your message. We will contact you soon!");
+      form.resetFields();
+    } catch (error) {
+      toast.error("Error submitting form", {
+        autoClose: 3000,
+      });
+      // console.error("Error submitting form", error);
+      // message.error("Error submitting form");
+    } finally {
+      setLoading(false);
+      setIsPopupOpen(false);
     }
   };
 
@@ -144,7 +159,7 @@ function App() {
         <Route path="/services/epc" element={<EPC />} />
         <Route path="/services/construction" element={<ConstructionDesign />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/projects" element={<Projects />} />
+        {/* <Route path="/projects" element={<Projects />} /> */}
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
@@ -161,7 +176,7 @@ function App() {
             width="24"
             height="24"
             data-ux="Icon"
-            class="x-el x-el-svg c2-1 c2-2 c2-q c2-r c2-s c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
+            className="x-el x-el-svg c2-1 c2-2 c2-q c2-r c2-s c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
           >
             <g fill="currentColor">
               <rect x="4" y="6" width="16" height="10.222" rx="1.129"></rect>
@@ -176,7 +191,7 @@ function App() {
             width="24"
             height="24"
             data-ux="Icon"
-            class="x-el x-el-svg c2-1 c2-2 c2-50 c2-r c2-s c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
+            className="x-el x-el-svg c2-1 c2-2 c2-50 c2-r c2-s c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
           >
             <path
               fill-rule="evenodd"
@@ -206,82 +221,90 @@ function App() {
             </span>
           </div>
           <div className="px-4 pb-4">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-1">Name</label>
+            <Form
+              form={form}
+              onFinish={onFinish}
+              layout="vertical"
+              className="max-w-md mx-auto"
+            >
+              <Form.Item
+                label="Name"
+                name="name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your name",
+                  },
+                ]}
+              >
+                <Input placeholder="Enter your name" disabled={loading} />
+              </Form.Item>
+
+              <Form.Item
+                label="Email Address"
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your email",
+                  },
+                  {
+                    type: "email",
+                    message: "Please enter a valid email",
+                  },
+                ]}
+              >
                 <Input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  disabled={loading} // Disable inputs while loading
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-xs">{errors.name}</p>
-                )}
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-1">
-                  Email Address
-                </label>
-                <Input
-                  name="email"
                   type="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="Enter your email address"
                   disabled={loading}
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-xs">{errors.email}</p>
-                )}
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-1">
-                  Mobile Number
-                </label>
+              </Form.Item>
+
+              <Form.Item
+                label="Mobile Number (Optional)"
+                name="mobile"
+                rules={[
+                  {
+                    pattern: /^[+]?[0-9\s-]+$/,
+                    message: "Please enter a valid phone number",
+                  },
+                ]}
+              >
                 <Input
-                  name="mobile"
-                  type="text"
-                  maxLength={10}
-                  pattern="[0-9]*"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  placeholder="Enter your mobile number"
+                  placeholder="Include country code e.g +91"
                   disabled={loading}
                 />
-                {errors.mobile && (
-                  <p className="text-red-500 text-xs">{errors.mobile}</p>
-                )}
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-1">
-                  Message
-                </label>
+              </Form.Item>
+
+              <Form.Item
+                label="Message"
+                name="message"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your message",
+                  },
+                ]}
+              >
                 <Input.TextArea
-                  name="message"
                   rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
                   placeholder="How can we help?"
                   disabled={loading}
                 />
-                {errors.message && (
-                  <p className="text-red-500 text-xs">{errors.message}</p>
-                )}
-              </div>
-              <div className="flex items-center justify-center">
+              </Form.Item>
+
+              <Form.Item className="mb-0 text-center">
                 <Button
-                  style={{ width: "100px" }}
                   type="primary"
                   htmlType="submit"
-                  block
-                  disabled={loading} // Disable button while loading
+                  style={{ width: "100px" }}
+                  disabled={loading}
                 >
                   {loading ? <Spin size="small" /> : "Send"}
                 </Button>
-              </div>
-            </form>
+              </Form.Item>
+            </Form>
           </div>
         </div>
       )}

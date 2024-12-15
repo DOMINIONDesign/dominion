@@ -9,6 +9,8 @@ import aboutus from "../assets/services_Background.avif";
 import publicInfrastructure from "../assets/services_public.png";
 // import Image from "../assets/services_Background.avif";
 import EPC from "../assets/services_EPC.jpeg";
+import Seo from "../components/Seo";
+import { pageSEO } from "../components/Seo.config";
 import consultancy from "../assets/services_construction.avif";
 import { Link } from "react-router-dom";
 const { Title, Paragraph } = Typography;
@@ -35,7 +37,13 @@ const services = [
       "At Dominion Engineering Services, we offer comprehensive engineering and consultancy services for the oil and gas industry, focusing on optimizing operational efficiency and ensuring the highest standards of safety. Our team of experts works closely with clients to design and implement solutions that enhance performance, reduce costs, and address complex challenges in exploration, production, and refining. We employ advanced technologies and best practices to ensure that every project adheres to industry regulations while minimizing environmental impact. Whether it's for upstream, midstream, or downstream operations, our commitment to excellence drives us to deliver innovative solutions tailored to the unique needs of the oil and gas sector.",
   },
   {
-    icon: <img alt="infrastructure" src={publicInfrastructure} className="text-4xl" />,
+    icon: (
+      <img
+        alt="infrastructure"
+        src={publicInfrastructure}
+        className="text-4xl"
+      />
+    ),
     title: "Public Infrastructure Design",
     link: "infrastructure",
     description:
@@ -59,77 +67,79 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="bg-gray-200">
-      <section className="text-white relative h-80">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="absolute inset-0">
-          <img alt="about us" src={aboutus} className="w-full h-full" />
-        </div>
-        <div className="relative z-10 h-full flex flex-col justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Title level={1} className="text-white text-center pt-20">
-              <span className="text-white font-bold text-5xl">
-                Discover Our Expertise
-              </span>
-            </Title>
-            <Paragraph className="text-center text-xl text-gray-100 max-w-3xl mx-auto font-semibold">
-              Offering cutting-edge engineering solutions that drive success
-              through innovation, precision, and sustainability.
-            </Paragraph>
+    <>
+      <Seo {...pageSEO.services} />
+      <div className="bg-gray-200">
+        <section className="text-white relative h-80">
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0">
+            <img alt="about us" src={aboutus} className="w-full h-full" />
           </div>
-        </div>
-      </section>
-      <div className="max-w-7xl px-4 sm:px-6 lg:px-8 md:w-[92%] mx-auto">
-        <div className="pt-4">
-          <Breadcrumb
-            className="text-md"
-            items={[
-              {
-                title: (
-                  <Link to="/" className="hover:text-blue-500 !text-black">
-                    Home
-                  </Link>
-                ),
-              },
-              {
-                title: (
-                  <Link
-                    to="/services"
-                    className="hover:text-blue-500 !text-black"
-                  >
-                    Services
-                  </Link>
-                ),
-              },
-            ]}
-          />
-        </div>
-        <div className="mt-2">
-          {services.map((service, index) => (
-            // This is where the animation div is added
-            <div
-              key={index}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } items-center gap-12 py-12 animate-fade-up`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Image Card Section */}
-              <div className="w-full md:w-1/2">
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-[400px] group">
-                  {/* Image Container */}
-                  <div className="relative w-full h-full">
-                    {/* Background Image */}
-                    <div className="absolute inset-0">
-                      {React.cloneElement(service.icon, {
-                        className:
-                          "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 ",
-                        alt: service.title,
-                      })}
-                    </div>
+          <div className="relative z-10 h-full flex flex-col justify-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <Title level={1} className="text-white text-center pt-20">
+                <span className="text-white font-bold text-5xl">
+                  Discover Our Expertise
+                </span>
+              </Title>
+              <Paragraph className="text-center text-xl text-gray-100 max-w-3xl mx-auto font-semibold">
+                Offering cutting-edge engineering solutions that drive success
+                through innovation, precision, and sustainability.
+              </Paragraph>
+            </div>
+          </div>
+        </section>
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 md:w-[92%] mx-auto">
+          <div className="pt-4">
+            <Breadcrumb
+              className="text-md"
+              items={[
+                {
+                  title: (
+                    <Link to="/" className="hover:text-blue-500 !text-black">
+                      Home
+                    </Link>
+                  ),
+                },
+                {
+                  title: (
+                    <Link
+                      to="/services"
+                      className="hover:text-blue-500 !text-black"
+                    >
+                      Services
+                    </Link>
+                  ),
+                },
+              ]}
+            />
+          </div>
+          <div className="mt-2">
+            {services.map((service, index) => (
+              // This is where the animation div is added
+              <div
+                key={index}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } items-center gap-12 py-12 animate-fade-up`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Image Card Section */}
+                <div className="w-full md:w-1/2">
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-[400px] group">
+                    {/* Image Container */}
+                    <div className="relative w-full h-full">
+                      {/* Background Image */}
+                      <div className="absolute inset-0">
+                        {React.cloneElement(service.icon, {
+                          className:
+                            "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 ",
+                          alt: service.title,
+                        })}
+                      </div>
 
-                    {/* Overlay with Title */}
-                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                      {/* Overlay with Title */}
+                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
                       <Title
                         level={3}
                         className="text-white mb-0 relative z-10"
@@ -137,29 +147,29 @@ const ServicesPage = () => {
                         {service.title}
                       </Title>
                     </div> */}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Content Section */}
-              <div className="w-full md:w-1/2">
-                <div
-                  className={`space-y-6 ${
-                    index % 2 === 0 ? "md:pl-8" : "md:pr-8"
-                  }`}
-                >
-                  <Title level={2} className="text-3xl font-extrabold">
-                    <span className="text-[#DC143C] font-bold">
-                      {" "}
-                      {service.title}
-                    </span>
-                  </Title>
+                {/* Content Section */}
+                <div className="w-full md:w-1/2">
+                  <div
+                    className={`space-y-6 ${
+                      index % 2 === 0 ? "md:pl-8" : "md:pr-8"
+                    }`}
+                  >
+                    <Title level={2} className="text-3xl font-extrabold">
+                      <span className="text-[#DC143C] font-bold">
+                        {" "}
+                        {service.title}
+                      </span>
+                    </Title>
 
-                  <Paragraph className="text-lg text-gray-600">
-                    {service.description}
-                  </Paragraph>
+                    <Paragraph className="text-lg text-gray-600">
+                      {service.description}
+                    </Paragraph>
 
-                  {/* <div className="space-y-4">
+                    {/* <div className="space-y-4">
                     <Title level={4} className="text-blue-600">
                       Key Features
                     </Title>
@@ -177,32 +187,33 @@ const ServicesPage = () => {
                       ))}
                     </ul>
                   </div> */}
-                  <Link to={`/services/${service.link}`}>
-                    <button className="mt-6 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center space-x-2 group">
-                      <span>Learn More</span>
-                      <svg
-                        className="w-4 h-4 transform transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </button>
-                  </Link>
+                    <Link to={`/services/${service.link}`}>
+                      <button className="mt-6 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center space-x-2 group">
+                        <span>Learn More</span>
+                        <svg
+                          className="w-4 h-4 transform transition-transform group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+        <Outlet />
       </div>
-      <Outlet />
-    </div>
+    </>
   );
 };
 

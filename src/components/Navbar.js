@@ -57,7 +57,7 @@ const Navbar = () => {
     { key: "/", label: "Home" },
     { key: "/about", label: "About Us" },
     { key: "/services", label: "Services" },
-    { key: "/projects", label: "Projects" },
+    // { key: "/projects", label: "Projects" },
     { key: "/contact", label: "Contact Us" },
   ];
   return (
@@ -68,42 +68,6 @@ const Navbar = () => {
           location.pathname === "/" ? "z-50" : "z-50"
         } transition-transform duration-300 }`}
       >
-        {/* Top Info Bar */}
-        {/* <div className="relative hidden lg:block bg-gray-950 text-white py-3">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center">
-              <div className="flex space-x-6">
-                <span className="flex items-center text-sm">
-                  <PhoneOutlined className="mr-2" />
-                  +91 7995952302
-                </span>
-                <span className="flex items-center text-sm">
-                  <MailOutlined className="mr-2" />
-                  design@dominionengg.com
-                </span>
-                <span className="flex items-center text-sm">
-                  <ClockCircleOutlined className="mr-2" />
-                  Mon - Fri: 9:00 AM - 6:00 PM
-                </span>
-              </div>
-              <div className="flex space-x-4">
-                <Button
-                  type="link"
-                  className="text-white hover:text-blue-400 p-0"
-                >
-                  Career
-                </Button>
-                <Button
-                  type="link"
-                  className="text-white hover:text-blue-400 p-0"
-                >
-                  Support
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         {/* Main Navbar */}
         <nav
           className={`w-full ${
@@ -189,7 +153,7 @@ const Navbar = () => {
         <nav
           data-aos="fade-down"
           data-aos-duration="500"
-          className="bg-gray-950 h-28 flex items-center text-white p-4 fixed top-0 left-0 w-full shadow-md z-50"
+          className="bg-gray-950 h-28 flex items-center text-white p-4 fixed top-0 left-0 w-full shadow-md z-40"
         >
           <div className="max-w-7xl mt-5 ml-4 mx-auto py-4 sm:px-6 lg:px-8">
             <div className="flex justify-start items-center h-20">
