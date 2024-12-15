@@ -14,8 +14,9 @@ import EPC from "../assets/EPC.png";
 import consultancy from "../assets/consultancy.jpg";
 // import BIM_Cover from "../assets/cover2.jpg";
 import tower from "../assets/Residential-Tower.jpg";
-import Gas from "../assets/GAS_Project.jpg";
-import complex from "../assets/complex.jpg";
+import Gas from "../assets/Gas_pipeline.jpg";
+import complex from "../assets/Residential-complex.jpg";
+import { Link } from "react-router-dom";
 // import { Link, NavLink } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
@@ -50,6 +51,7 @@ const Home = () => {
     {
       icon: <img src={BIM} alt="BIM" className="text-4xl" />,
       title: "BIM",
+      link: "/services/bim",
       description:
         "We help our customers with BIM, provide solutions for optimized coordination, collaboration, and visualization.",
       features: [
@@ -63,6 +65,7 @@ const Home = () => {
     {
       icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
       title: "Pipeline",
+      link: "/services/pipeline",
       description:
         "We deliver efficient, reliable, and sustainable pipeline designs that optimize flow and meet all safety and regulatory standards.",
       features: [
@@ -76,6 +79,7 @@ const Home = () => {
     {
       icon: <img alt="BIM" src={oilAndGas} className="text-4xl" />,
       title: "Oil & Gas",
+      link: "/services/oilandgas",
       description:
         "We provide engineering and consultancy for oil and gas, optimizing efficiency and ensuring safety.",
       features: [
@@ -89,6 +93,7 @@ const Home = () => {
     {
       icon: <img alt="BIM" src={publicInfrastructure} className="text-4xl" />,
       title: "Public Infrastructure",
+      link: "/services/infrastructure",
       description:
         "We design sustainable infrastructure, enhancing connectivity, safety, and environmental compliance.",
       features: [
@@ -100,6 +105,7 @@ const Home = () => {
     {
       icon: <img alt="BIM" src={EPC} className="text-4xl" />,
       title: "EPC",
+      link: "/services/epc",
       description:
         "We offer end-to-end EPC solutions, delivering integrated services with a focus on cost-effectiveness, quality, and safety.",
       features: [
@@ -111,6 +117,7 @@ const Home = () => {
     {
       icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
       title: "Construction Design",
+      link: "/services/construction",
       description:
         "We specialize in structural, civil, and architectural designs, delivering precise blueprints for all project types",
       features: [
@@ -119,28 +126,28 @@ const Home = () => {
         "Advanced Technology",
       ],
     },
-    {
-      icon: <img alt="BIM" src={EPC} className="text-4xl" />,
-      title: "EPC",
-      description:
-        "We offer end-to-end EPC solutions, delivering integrated services with a focus on cost-effectiveness, quality, and safety.",
-      features: [
-        "End-to-End Project Solutions",
-        "Timely Delivery",
-        "High-Quality Engineering and Construction",
-      ],
-    },
-    {
-      icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
-      title: "Construction Design",
-      description:
-        "We specialize in structural, civil, and architectural designs, delivering precise blueprints for all project types",
-      features: [
-        "Project Feasibility Analysis",
-        "Collaborative Approach",
-        "Advanced Technology",
-      ],
-    },
+    // {
+    //   icon: <img alt="BIM" src={EPC} className="text-4xl" />,
+    //   title: "EPC",
+    //   description:
+    //     "We offer end-to-end EPC solutions, delivering integrated services with a focus on cost-effectiveness, quality, and safety.",
+    //   features: [
+    //     "End-to-End Project Solutions",
+    //     "Timely Delivery",
+    //     "High-Quality Engineering and Construction",
+    //   ],
+    // },
+    // {
+    //   icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
+    //   title: "Construction Design",
+    //   description:
+    //     "We specialize in structural, civil, and architectural designs, delivering precise blueprints for all project types",
+    //   features: [
+    //     "Project Feasibility Analysis",
+    //     "Collaborative Approach",
+    //     "Advanced Technology",
+    //   ],
+    // },
   ];
 
   const projects = [
@@ -297,9 +304,11 @@ const Home = () => {
                   organizations seeking innovative approaches to complex
                   challenges.
                 </Paragraph>
-                <Button className="w-full h-10" type="primary">
-                  About Us
-                </Button>
+                <Link to="/about">
+                  <Button className="w-full h-10" type="primary">
+                    About Us
+                  </Button>
+                </Link>
               </div>
 
               {/* Image Section */}
@@ -358,36 +367,38 @@ const Home = () => {
           <div className="max-w-7xl ">
             <Row gutter={[24, 24]}>
               {services.map((service, index) => (
-                <Col xs={24} sm={12} lg={6} key={index}>
-                  <Card
-                    className="custom-card shadow-lg rounded-s-3xl cursor-pointer shadow-blue-200 h-full hover:shadow-lg transition-shadow duration-300 transform perspective-1000"
-                    bordered={false}
-                    data-aos="flip-left"
-                    data-aos-duration="1000"
-                  >
-                    <div className="relative text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
-                      {/* Image Wrapper */}
-                      <div className="relative">
-                        <img
-                          src={service.icon.props.src}
-                          alt={service.title}
-                          className="w-full h-72 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
-                        />
-                        {/* Text Overlay */}
-                        <div className="absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-65 hover:bg-opacity-45 rounded-md px-4 pb-4">
-                          <p className="text-[#70eee8] font-bold text-lg mb-2 text-left">
-                            {service.title}
-                          </p>
-                          <p className="text-white text-md font-semibold text-left">
-                            {service.description}
-                          </p>
-                          <p className="text-[#8cd521] text-md font-bold text-left">
-                            Readmore
-                          </p>
+                <Col xs={24} sm={12} lg={8} key={index}>
+                  <Link to={service.link}>
+                    <Card
+                      className="custom-card shadow-lg rounded-s-3xl cursor-pointer shadow-blue-200 h-full hover:shadow-lg transition-shadow duration-300 transform perspective-1000"
+                      bordered={false}
+                      data-aos="flip-left"
+                      data-aos-duration="1000"
+                    >
+                      <div className="relative text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
+                        {/* Image Wrapper */}
+                        <div className="relative">
+                          <img
+                            src={service.icon.props.src}
+                            alt={service.title}
+                            className="w-full h-72 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+                          />
+                          {/* Text Overlay */}
+                          <div className="absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-65 hover:bg-opacity-45 rounded-md px-4 pb-4">
+                            <p className="text-[#70eee8] font-bold text-lg mb-2 text-left">
+                              {service.title}
+                            </p>
+                            <p className="text-white text-md font-semibold text-left">
+                              {service.description}
+                            </p>
+                            <p className="text-[#8cd521] text-md font-bold text-left">
+                              Readmore
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </Link>
                 </Col>
               ))}
             </Row>
@@ -408,46 +419,49 @@ const Home = () => {
               </span>
             </Title>
             <Divider />
-            <Row gutter={[24, 24]}>
-              {projects.map((project, index) => (
-                <Col xs={24} md={8} key={index}>
-                  <Card
-                    hoverable
-                    data-aos="flip-left"
-                    data-aos-duration="2000"
-                    cover={
-                      <div className="h-64 relative overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                        />
-                      </div>
-                    }
-                    className="h-full"
-                  >
-                    <Card.Meta
-                      title={
-                        <div className="flex justify-between items-center">
-                          <span>{project.title}</span>
-                          <span className="text-sm text-gray-500">
-                            {project.year}
-                          </span>
+            <Link to="/projects">
+              <Row gutter={[24, 24]}>
+                {projects.map((project, index) => (
+                  <Col xs={24} md={8} key={index}>
+                    <Card
+                      hoverable
+                      data-aos="flip-left"
+                      data-aos-duration="2000"
+                      cover={
+                        <div className="h-64 relative overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                          />
                         </div>
                       }
-                      description={
-                        <div>
-                          <p className="text-gray-600 mb-2">
-                            {project.description}
-                          </p>
-                          <p className="text-blue-600">{project.location}</p>
-                        </div>
-                      }
-                    />
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+                      className="h-full !bg-gray-300"
+                    >
+                      <Card.Meta
+                        title={
+                          <div className="flex justify-between  items-center">
+                            <span>{project.title}</span>
+                            <span className="text-sm">{project.year}</span>
+                          </div>
+                        }
+                        description={
+                          <div>
+                            <p className="mb-2 text-black">
+                              {project.description}
+                            </p>
+                            <p className="text-blue-600">{project.location}</p>
+                            <p className="text-[#c44343] text-md font-bold text-left">
+                              Readmore
+                            </p>
+                          </div>
+                        }
+                      />
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </Link>
             {/* <div className="text-center mt-12">
             <NavLink
               to="/projects"

@@ -21,32 +21,37 @@ const services = [
       "At Dominion Engineering Services, we assist our clients with Building Information Modeling (BIM) to enhance project outcomes. Our BIM solutions are designed to streamline coordination, foster better collaboration, and provide advanced visualization techniques. By integrating BIM into your project, we ensure improved project planning, cost efficiency, and faster delivery times. With a strong focus on sustainable design, our BIM approach helps optimize every aspect of your project, from conception to completion.",
   },
   {
-    icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
+    icon: <img alt="Pipeline" src={pipelineServices} className="text-4xl" />,
     title: "Pipeline Design",
+    link: "pipeline",
     description:
       "At Dominion Engineering Services, we deliver efficient, reliable, and sustainable pipeline designs that optimize flow and adhere to all safety and regulatory standards. Our solutions are crafted to ensure that each pipeline system is robust, cost-effective, and built to last, meeting the highest industry standards for safety and performance.",
   },
   {
-    icon: <img alt="BIM" src={oilAndGas} className="text-4xl" />,
+    icon: <img alt="oilandgas" src={oilAndGas} className="text-4xl" />,
     title: "Oil & Gas",
+    link: "oilandgas",
     description:
       "At Dominion Engineering Services, we offer comprehensive engineering and consultancy services for the oil and gas industry, focusing on optimizing operational efficiency and ensuring the highest standards of safety. Our team of experts works closely with clients to design and implement solutions that enhance performance, reduce costs, and address complex challenges in exploration, production, and refining. We employ advanced technologies and best practices to ensure that every project adheres to industry regulations while minimizing environmental impact. Whether it's for upstream, midstream, or downstream operations, our commitment to excellence drives us to deliver innovative solutions tailored to the unique needs of the oil and gas sector.",
   },
   {
-    icon: <img alt="BIM" src={publicInfrastructure} className="text-4xl" />,
+    icon: <img alt="infrastructure" src={publicInfrastructure} className="text-4xl" />,
     title: "Public Infrastructure Design",
+    link: "infrastructure",
     description:
       "At Dominion Engineering Services, we specialize in designing sustainable public infrastructure that enhances connectivity, safety, and environmental compliance. Our solutions focus on creating resilient systems that support urban growth, improve transportation networks, and promote long-term sustainability. We ensure that every project is built to meet regulatory standards while considering the future needs of communities and the environment.",
   },
   {
-    icon: <img alt="BIM" src={EPC} className="text-4xl" />,
+    icon: <img alt="EPC" src={EPC} className="text-4xl" />,
     title: "EPC",
+    link: "epc",
     description:
       "Dominion Engineering Services offers comprehensive end-to-end Engineering, Procurement, and Construction (EPC) solutions. We deliver integrated services that focus on cost-effectiveness, quality, and safety, ensuring each project is completed on time and within budget. Our team works closely with clients from project inception to completion, providing seamless coordination and innovative solutions that meet industry standards and exceed expectations.",
   },
   {
-    icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
+    icon: <img alt="construction" src={consultancy} className="text-4xl" />,
     title: "Construction Design",
+    link: "construction",
     description:
       "At Dominion Engineering Services, we specialize in structural, civil, and architectural designs, delivering precise blueprints tailored to all project types. Our team of experts ensures that every design is not only functional and efficient but also adheres to safety standards and regulatory requirements. We focus on creating innovative solutions that enhance the integrity, durability, and aesthetic appeal of each project, ensuring long-term success.",
   },

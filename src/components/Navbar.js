@@ -10,37 +10,48 @@ const Navbar = () => {
   const [showSecondNavbar, setShowSecondNavbar] = useState(false); // state to control second navbar visibility
   const location = useLocation();
   useEffect(() => {
+    // Scroll to the top when the route changes
     window.scrollTo(0, 0);
+
+    // Reset state when navigating back to the Home page
+    if (location.pathname === "/") {
+      setShowSecondNavbar(false); // Reset second navbar visibility
+      setLastScrollY(0); // Reset the last scroll position
+    }
   }, [location]);
-  // Handle scroll effect
+
   useEffect(() => {
     if (location.pathname === "/") {
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
 
-        // Show second navbar when user scrolls past carousel (adjust threshold)
+        // Show second navbar when scrolling past a certain threshold
         if (currentScrollY > 550) {
           setShowSecondNavbar(true);
         } else {
           setShowSecondNavbar(false);
         }
 
-        // Scroll hiding logic (optional)
+        // Show/Hide main navbar based on scroll direction
         if (currentScrollY > lastScrollY) {
           setIsVisible(false); // Scrolling down
         } else {
           setIsVisible(true); // Scrolling up
         }
 
+        // Update the last scroll position
         setLastScrollY(currentScrollY);
       };
 
+      // Attach the scroll event listener
       window.addEventListener("scroll", handleScroll, { passive: true });
 
+      // Cleanup the event listener on unmount
       return () => window.removeEventListener("scroll", handleScroll);
     }
     return () => {};
   }, [lastScrollY, location.pathname]);
+
   console.log(isVisible);
   const menuItems = [
     { key: "/", label: "Home" },

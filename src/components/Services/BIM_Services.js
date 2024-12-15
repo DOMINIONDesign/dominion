@@ -312,9 +312,11 @@ export default function BIM_Services() {
             Contact us today to discuss how our BIM services can enhance your
             project's efficiency, reduce costs, and ensure successful delivery.
           </Paragraph>
-          <button className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1">
-            Schedule a Consultation
-          </button>
+          <Link to="/contact">
+            <button className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1">
+              Contact Us
+            </button>
+          </Link>
         </div>
       </div>
     </div>

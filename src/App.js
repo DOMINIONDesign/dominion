@@ -14,6 +14,12 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { Input, Button, Spin } from "antd"; // Antd components
 import BimServices from "./components/Services/BIM_Services";
+import PipelineServices from "./components/Services/pipeline_services";
+import OilAndGas from "./components/Services/OilAndGas";
+import PublicInfrastructureDesign from "./components/Services/PublicInfrastructureDesign";
+import EPC from "./components/Services/EPC";
+import ConstructionDesign from "./components/Services/Construction";
+import Projects from "./components/projects";
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -129,7 +135,16 @@ function App() {
         <Route exact path="/about" element={<AboutUs />} />
         <Route exact path="/services" element={<Services />} />
         <Route path="/services/bim" element={<BimServices />} />
+        <Route path="/services/pipeline" element={<PipelineServices />} />
+        <Route path="/services/oilandgas" element={<OilAndGas />} />
+        <Route
+          path="/services/infrastructure"
+          element={<PublicInfrastructureDesign />}
+        />
+        <Route path="/services/epc" element={<EPC />} />
+        <Route path="/services/construction" element={<ConstructionDesign />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
@@ -174,7 +189,7 @@ function App() {
       {/* Contact Us Popup */}
       {isPopupOpen && (
         <div
-          className="fixed bottom-20 right-4 mb-2 bg-white rounded-lg shadow-lg w-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
+          className="z-50 fixed bottom-20 right-4 mb-2 bg-white rounded-lg shadow-lg w-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
           style={{ maxHeight: "470px" }}
         >
           <div className="bg-blue-500 text-white px-4 py-6 w-full">
