@@ -69,16 +69,16 @@ const ServicesPage = () => {
   return (
     <>
       <Seo {...pageSEO.services} />
-      <div className="bg-gray-200">
-        <section className="text-white relative h-80">
+      <div className="bg-primary">
+        <section className="main-text  relative h-80">
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute inset-0">
             <img alt="about us" src={aboutus} className="w-full h-full" />
           </div>
           <div className="relative z-10 h-full flex flex-col justify-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <Title level={1} className="text-white text-center pt-20">
-                <span className="text-white font-bold text-5xl">
+              <Title level={1} className="main-text  text-center pt-20">
+                <span className="main-text  font-bold text-5xl">
                   Discover Our Expertise
                 </span>
               </Title>
@@ -92,11 +92,11 @@ const ServicesPage = () => {
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 md:w-[92%] mx-auto">
           <div className="pt-4">
             <Breadcrumb
-              className="text-md"
+              className="text-md !text-white"
               items={[
                 {
                   title: (
-                    <Link to="/" className="hover:text-blue-500 !text-black">
+                    <Link to="/" className="hover:text-blue-500 !text-white">
                       Home
                     </Link>
                   ),
@@ -105,7 +105,7 @@ const ServicesPage = () => {
                   title: (
                     <Link
                       to="/services"
-                      className="hover:text-blue-500 !text-black"
+                      className="hover:text-blue-500 !text-white"
                     >
                       Services
                     </Link>
@@ -114,7 +114,7 @@ const ServicesPage = () => {
               ]}
             />
           </div>
-          <div className="mt-2">
+          <div className="mt-2" data-aos="zoom-in">
             {services.map((service, index) => (
               // This is where the animation div is added
               <div
@@ -137,35 +137,29 @@ const ServicesPage = () => {
                           alt: service.title,
                         })}
                       </div>
-
-                      {/* Overlay with Title */}
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-                      <Title
-                        level={3}
-                        className="text-white mb-0 relative z-10"
-                      >
-                        {service.title}
-                      </Title>
-                    </div> */}
                     </div>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="w-full md:w-1/2">
+                <div
+                  className="w-full md:w-1/2"
+                  data-aos="zoom-in"
+                  data-aos-duration="500"
+                >
                   <div
                     className={`space-y-6 ${
                       index % 2 === 0 ? "md:pl-8" : "md:pr-8"
                     }`}
                   >
-                    <Title level={2} className="text-3xl font-extrabold">
+                    <Title level={2} className="text-3xl font-extrabold ">
                       <span className="text-[#DC143C] font-bold">
                         {" "}
                         {service.title}
                       </span>
                     </Title>
 
-                    <Paragraph className="text-lg text-gray-600">
+                    <Paragraph className="text-md main-text">
                       {service.description}
                     </Paragraph>
 

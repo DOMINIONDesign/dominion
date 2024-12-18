@@ -14,15 +14,16 @@ const { Title, Paragraph, Text } = Typography;
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-950 text-gray-300" data-aos="fade-up">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center">
         <Row gutter={[32, 32]}>
           {/* Company Info */}
-          <Col xs={24} sm={24} md={8} lg={{ span: 5, offset: 2 }}>
+          <Col xs={24} sm={24} md={8} lg={8}>
             <div>
-              <div className="flex text-balance">
-                <div className="items-center">
+              <div className="flex flex-row space-x-6">
+                {/* SVG on the left */}
+                <div className="flex-shrink-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="40 80 200 150"
@@ -45,39 +46,42 @@ const Footer = () => {
                     </g>
                   </svg>
                 </div>
+
+                {/* Content on the right */}
+                <div>
+                  <Paragraph className="text-gray-400 mb-4 text-pretty">
+                    Leading the way in innovative engineering solutions with a
+                    fresh approach in structural design and consulting,
+                    committed to excellence from the outset.
+                    <div className="flex items-center space-x-4 mt-4">
+                      <Link to="#" className="text-xl">
+                        <FacebookOutlined />
+                      </Link>
+                      <Link
+                        to="#"
+                        className="text-gray-400 hover:text-blue-500 text-xl"
+                      >
+                        <TwitterOutlined />
+                      </Link>
+                      <Link
+                        to="#"
+                        className="text-gray-400 hover:text-blue-500 text-xl"
+                      >
+                        <LinkedinOutlined />
+                      </Link>
+                      <Link
+                        to="https://www.instagram.com/dominionengg"
+                        className="text-gray-400 hover:text-blue-500 text-xl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <InstagramOutlined />
+                      </Link>
+                    </div>
+                  </Paragraph>
+                </div>
               </div>
             </div>
-            <Paragraph className="text-gray-400 mb-4 text-pretty">
-              Leading the way in innovative engineering solutions with over two
-              decades of excellence in structural design and consulting.
-              <div className="flex items-center space-x-4">
-                <Link to="#" className="text-xl">
-                  <FacebookOutlined />
-                </Link>
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-blue-500
-                  text-xl"
-                >
-                  <TwitterOutlined />
-                </Link>
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-blue-500
-                  text-xl"
-                >
-                  <LinkedinOutlined />
-                </Link>
-                <Link
-                  to="https://www.instagram.com/dominionengg" // Replace with the actual Instagram profile URL
-                  className="text-gray-400 hover:text-blue-500 text-xl"
-                  target="_blank" // Opens the link in a new tab
-                  rel="noopener noreferrer" // Adds security enhancements
-                >
-                  <InstagramOutlined />
-                </Link>
-              </div>
-            </Paragraph>
           </Col>
 
           {/* Quick Links */}
@@ -89,18 +93,27 @@ const Footer = () => {
               <Col span={12}>
                 <ul className="space-y-3">
                   <li>
-                    <Link to="#" className="text-gray-400 hover:text-blue-500">
+                    <Link
+                      to="/about"
+                      className="text-gray-400 hover:text-blue-500"
+                    >
                       About Us
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="text-gray-400 hover:text-blue-500">
+                    <Link
+                      to="/services"
+                      className="text-gray-400 hover:text-blue-500"
+                    >
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link to="#" className="text-gray-400 hover:text-blue-500">
-                      Projects
+                    <Link
+                      to="/contact"
+                      className="text-gray-400 hover:text-blue-500"
+                    >
+                      Contact US
                     </Link>
                   </li>
                   {/* <li>

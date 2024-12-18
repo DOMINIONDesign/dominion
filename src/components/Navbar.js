@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button, Drawer, Menu } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import { Button, Drawer } from "antd";
+import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,35 +21,35 @@ const Navbar = () => {
   }, [location]);
 
   useEffect(() => {
-    if (location.pathname === "/") {
-      const handleScroll = () => {
-        const currentScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-        // Show second navbar when scrolling past a certain threshold
-        if (currentScrollY > 550) {
-          setShowSecondNavbar(true);
-        } else {
-          setShowSecondNavbar(false);
-        }
+      // Show second navbar when scrolling past a certain threshold
+      if (
+        currentScrollY > 550 ||
+        (location.pathname !== "/" && currentScrollY > 200)
+      ) {
+        setShowSecondNavbar(true);
+      } else {
+        setShowSecondNavbar(false);
+      }
 
-        // Show/Hide main navbar based on scroll direction
-        if (currentScrollY > lastScrollY) {
-          setIsVisible(false); // Scrolling down
-        } else {
-          setIsVisible(true); // Scrolling up
-        }
+      // Show/Hide main navbar based on scroll direction
+      if (currentScrollY > lastScrollY) {
+        setIsVisible(false); // Scrolling down
+      } else {
+        setIsVisible(true); // Scrolling up
+      }
 
-        // Update the last scroll position
-        setLastScrollY(currentScrollY);
-      };
+      // Update the last scroll position
+      setLastScrollY(currentScrollY);
+    };
 
-      // Attach the scroll event listener
-      window.addEventListener("scroll", handleScroll, { passive: true });
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-      // Cleanup the event listener on unmount
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-    return () => {};
+    // Cleanup the event listener on unmount
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, location.pathname]);
 
   console.log(isVisible);
@@ -71,9 +71,13 @@ const Navbar = () => {
         {/* Main Navbar */}
         <nav
           className={`w-full ${
-            location.pathname !== "/"
+            location.pathname === "/"
               ? "bg-transparent absolute pt-5"
-              : "bg-transparent absolute mt-5"
+              : location.pathname === "/services" ||
+                location.pathname === "/about" ||
+                location.pathname === "/contact"
+              ? "bg-transparent absolute mt-5"
+              : "bg-black pt-5"
           }`}
         >
           <div className="max-w-7xl  ml-4 mx-auto py-4 sm:px-6 lg:px-8">
@@ -149,11 +153,11 @@ const Navbar = () => {
       </div>
 
       {/* Second Navbar (Shows after scrolling past the carousel) */}
-      {showSecondNavbar && location.pathname === "/" && (
+      {showSecondNavbar && (
         <nav
           data-aos="fade-down"
           data-aos-duration="500"
-          className="bg-gray-950 h-28 flex items-center text-white p-4 fixed top-0 left-0 w-full shadow-md z-40"
+          className="bg-black h-28 flex items-center text-white p-4 fixed top-0 left-0 w-full shadow-md z-40"
         >
           <div className="max-w-7xl mt-5 ml-4 mx-auto py-4 sm:px-6 lg:px-8">
             <div className="flex justify-start items-center h-20">
@@ -215,10 +219,10 @@ const Navbar = () => {
               </div>
 
               {/* Mobile Menu Button */}
-              <div className="lg:hidden">
+              <div className="lg:hidden !text-white">
                 <Button
                   type="text"
-                  icon={<MenuOutlined className="text-white" />}
+                  icon={<MenuOutlined className="!text-white" />}
                   onClick={() => setIsMenuOpen(true)}
                   className="flex items-center justify-center p-2"
                 />
@@ -228,28 +232,38 @@ const Navbar = () => {
         </nav>
       )}
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer Menu */}
       <Drawer
-        title={
-          <div className="flex items-center space-x-3">
-            <div className="h-8 w-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">DN</span>
-            </div>
-            <span className="text-lg font-bold text-gray-800">Dominion</span>
-          </div>
-        }
+        title="Menu"
         placement="right"
         onClose={() => setIsMenuOpen(false)}
         open={isMenuOpen}
-        width={300}
+        className="lg:hidden !bg-black text-white"
+        closeIcon={<CloseOutlined className="!text-white" />}
       >
-        <Menu mode="vertical" selectedKeys={[location.pathname]}>
+        <div className="flex flex-col space-y-4">
           {menuItems.map((item) => (
-            <Menu.Item key={item.key}>
-              <Link to={item.key}>{item.label}</Link>
-            </Menu.Item>
+            <Link
+              key={item.key}
+              to={item.key}
+              onClick={() => setIsMenuOpen(false)}
+              className={`text-base font-medium relative inline-block py-2 rounded-md ${
+                location.pathname === item.key
+                  ? "text-blue-500 font-bold  underline"
+                  : "text-white hover:text-black"
+              }`}
+            >
+              {item.label}
+              <span
+                className={`absolute bottom-0 left-0 block h-[2px] bg-black transition-all duration-300 ${
+                  location.pathname === item.key
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
+                }`}
+              />
+            </Link>
           ))}
-        </Menu>
+        </div>
       </Drawer>
     </div>
   );

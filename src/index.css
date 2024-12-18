@@ -1,14 +1,24 @@
 body {
   margin: 0;
-  font-family: 'Brother 1816', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Cabin', 'Lato' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+/* Centralized typography styles for Ant Design */
+.ant-typography,
+.ant-typography-title,
+.ant-typography-secondary,
+.ant-typography-success,
+.ant-typography-warning,
+.ant-typography-danger {
+  font-family: 'Cabin', 'Lato' !important;
+  font-size: 16px; /* Adjust as per your requirements */
+  line-height: 1.5; /* Adjust for better readability */
+  color: #333; /* Optional: Override default color */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+
 
 @tailwind base;
 @tailwind components;
@@ -163,5 +173,15 @@ button.carousel-navigation:last-child:hover {
 .custom-card .ant-card-body{
   padding:0px
 }
-
-
+.bg-primary{
+  background-color: black;
+}
+.bg-secondary{
+  background-color: white;
+}
+.main-text{
+  color: white;
+}
+.ant-breadcrumb-separator{
+  color: white!important;
+}

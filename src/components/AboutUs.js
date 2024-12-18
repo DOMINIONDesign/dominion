@@ -1,90 +1,27 @@
 import React from "react";
 import { Typography, Row, Col } from "antd";
-import {
-  SafetyCertificateOutlined,
-  TeamOutlined,
-  BulbOutlined,
-  TrophyOutlined,
-  HomeOutlined,
-  EnvironmentOutlined,
-  AppstoreOutlined,
-} from "@ant-design/icons";
 import aboutus from "../assets/about_us1.jpg";
-
-import Mission from "../assets/Eng_Mission.jpeg";
-// import Mission from "../assets/eng_Mission1.webp";
-// import Mission from "../assets/eng_Mission2.jpg";
+import Mission from "../assets/projects.avif";
 
 const { Title, Paragraph } = Typography;
 
 const AboutUs = () => {
-  const coreValues = [
-    {
-      icon: (
-        <SafetyCertificateOutlined
-          style={{ fontSize: "2rem", color: "#1890ff" }}
-        />
-      ),
-      title: "Excellence",
-      description:
-        "Committed to delivering the highest quality in everything we do",
-    },
-    {
-      icon: <TeamOutlined style={{ fontSize: "2rem", color: "#1890ff" }} />,
-      title: "Collaboration",
-      description: "Working together to achieve exceptional results",
-    },
-    {
-      icon: <BulbOutlined style={{ fontSize: "2rem", color: "#1890ff" }} />,
-      title: "Innovation",
-      description: "Pushing boundaries with creative solutions",
-    },
-    {
-      icon: <TrophyOutlined style={{ fontSize: "2rem", color: "#1890ff" }} />,
-      title: "Leadership",
-      description: "Setting industry standards through visionary guidance",
-    },
-  ];
-
-  // const teamMembers = [
-  //   {
-  //     name: "John Smith",
-  //     position: "CEO",
-  //     description: "Visionary leader with 20+ years of industry experience.",
-  //   },
-  //   {
-  //     name: "Sarah Johnson",
-  //     position: "Technical Director",
-  //     description: "Expert in innovative engineering solutions.",
-  //   },
-  //   {
-  //     name: "Michael Chen",
-  //     position: "Operations Head",
-  //     description: "Specialist in operational excellence and efficiency.",
-  //   },
-  //   {
-  //     name: "Emma Wilson",
-  //     position: "Project Director",
-  //     description: "Leading complex projects with exceptional results.",
-  //   },
-  // ];
-
   return (
-    <div className="bg-gray-200">
+    <div className="bg-black">
       {/* Hero Section with Background Image */}
-      <section className="text-white relative h-80">
+      <section className="main-text relative h-80">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img src={aboutus} alt="about us" className="w-full h-full" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Title level={1} className="text-white text-center pt-20">
-              <span className="text-white font-bold text-5xl">
+            <Title level={1} className="main-text text-center pt-20">
+              <span className="main-text font-bold text-5xl">
                 About Dominion
               </span>
             </Title>
-            <Paragraph className="text-center text-xl text-gray-100 max-w-3xl mx-auto font-semibold">
+            <Paragraph className="text-center text-xl main-text max-w-3xl mx-auto font-semibold">
               Leading the future of engineering with innovation, expertise, and
               sustainable solutions.
             </Paragraph>
@@ -93,7 +30,7 @@ const AboutUs = () => {
       </section>
       <div className="md:w-[90%] mx-auto">
         {/* Mission & Vision Section */}
-        <section className="pt-10">
+        <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 opacity-95">
             <Row gutter={[48, 48]} align="top">
               <Col xs={24} md={12}>
@@ -101,38 +38,37 @@ const AboutUs = () => {
                   <img
                     src={Mission}
                     alt="Mission"
-                    className="h-[500px] rounded-lg"
+                    className="h-[350px] rounded-lg"
                   />
                 </div>
               </Col>
               <Col xs={24} md={12}>
-                <Paragraph className="text-black">
+                <Paragraph className="main-text">
                   <span className="text-[#DC143C] text-lg font-bold">
                     Dominion Engineering Services
                   </span>{" "}
-                  Your Trusted Partner in Engineering Excellence Established in
-                  2006, Dominion Engineering Services has evolved from a humble
-                  startup into a leading multidisciplinary design company. We
-                  specialize in plant design, detailed engineering, 3D modeling,
-                  and as-built engineering services, delivering innovative
-                  solutions that meet the complex needs of our clients. In 2015,
-                  Dominion Engineering Services became part of NPCC Engineering
-                  Pvt. Limited (NEL), Mumbai, a wholly owned subsidiary of NMDC
-                  Energy, Abu Dhabi. Together, Dominion and NEL bring a combined
-                  strength of over 1,200 highly skilled engineering
-                  professionals. This partnership empowers us to provide
-                  comprehensive engineering services across the upstream,
-                  midstream, and downstream sectors of the oil & gas industry.
+                  combines innovation, expertise, and precision to deliver
+                  unparalleled design consultancy solutions across a diverse
+                  range of industries. At Dominion, we specialize in
+                  comprehensive engineering and design consultancy services.
+                  With expertise spanning mechanical, civil, structural,
+                  electrical, electronics, automotive, and more, we provide
+                  tailored solutions to clients in industrial, commercial, and
+                  public sectors.
                 </Paragraph>
-                <Title level={4}>Our Mission</Title>
-                <Paragraph className="text-black mb-6">
+                <Title level={4} className="!text-white">
+                  Our Mission
+                </Title>
+                <Paragraph className="main-text mb-6">
                   To deliver innovative, sustainable, and precise engineering
                   design solutions that empower our clients' success while
                   fostering efficiency, sustainability, and long-term value in
                   every project.
                 </Paragraph>
-                <Title level={4}>Our Vision</Title>
-                <Paragraph className="text-black">
+                <Title level={4} className="!text-white">
+                  Our Vision
+                </Title>
+                <Paragraph className="main-text">
                   To be the global leader in engineering excellence, driving
                   positive change through innovative solutions and sustainable
                   practices.
@@ -181,7 +117,7 @@ const AboutUs = () => {
       </section> */}
 
         {/* Core Values Section */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Title level={2} className="text-center mb-12">
               Our Core Values
@@ -189,8 +125,7 @@ const AboutUs = () => {
             <Row gutter={[24, 24]}>
               {coreValues.map((value, index) => (
                 <Col xs={24} sm={12} md={6} key={index}>
-                  <div className="h-full bg-white rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/40 group">
-                    {/* Icon with animated background on hover */}
+                  <div className="h-full bg-white rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/40 group">                    
                     <div className="mb-6 relative">
                       <div className="w-10 h-10 mx-auto bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300">
                         <span className="text-blue-600 text-2xl">
@@ -199,7 +134,7 @@ const AboutUs = () => {
                       </div>
                     </div>
 
-                    {/* Title with hover effect */}
+                    
                     <Title
                       level={4}
                       className="mb-4 text-center group-hover:text-blue-600 transition-colors duration-300"
@@ -207,19 +142,18 @@ const AboutUs = () => {
                       {value.title}
                     </Title>
 
-                    {/* Description */}
                     <Paragraph className="text-gray-600 text-center mb-0">
                       {value.description}
                     </Paragraph>
 
-                    {/* Optional decorative line */}
+
                     <div className="mt-4 w-12 h-1 bg-blue-600 mx-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </Col>
               ))}
             </Row>
           </div>
-        </section>
+        </section> */}
 
         {/* Team Section */}
         {/* <section className="py-16 ">
@@ -258,7 +192,7 @@ const AboutUs = () => {
         </section> */}
 
         {/* Expertise Section */}
-        <section className="py-2 pb-20">
+        {/* <section className="py-2 pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Title level={2} className="text-center mb-20 text-4xl font-bold">
               Our Areas of <span className="text-blue-600">Expertise</span>
@@ -267,10 +201,8 @@ const AboutUs = () => {
             <Row gutter={[32, 48]}>
               <Col xs={24} md={8}>
                 <div className="relative group h-full">
-                  {/* Background decorator */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
 
-                  {/* Main content */}
                   <div className="relative bg-white p-8 rounded-lg ring-1 ring-gray-100 h-[315px]">
                     <div className="flex items-center mb-8">
                       <div className="flex-shrink-0">
@@ -314,10 +246,8 @@ const AboutUs = () => {
 
               <Col xs={24} md={8}>
                 <div className="relative group h-full">
-                  {/* Background decorator */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
 
-                  {/* Main content */}
                   <div className="relative bg-white p-8 rounded-lg ring-1 ring-gray-100 h-[315px]">
                     <div className="flex items-center mb-8">
                       <div className="flex-shrink-0">
@@ -361,10 +291,8 @@ const AboutUs = () => {
 
               <Col xs={24} md={8}>
                 <div className="relative group h-full">
-                  {/* Background decorator */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-purple-400 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
 
-                  {/* Main content */}
                   <div className="relative bg-white p-8 rounded-lg ring-1 ring-gray-100 h-[315px]">
                     <div className="flex items-center mb-8">
                       <div className="flex-shrink-0">
@@ -407,7 +335,7 @@ const AboutUs = () => {
               </Col>
             </Row>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );

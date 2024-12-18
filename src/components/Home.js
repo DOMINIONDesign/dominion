@@ -1,32 +1,25 @@
 // src/components/Home.js
 import React, { useRef } from "react";
-import { Card, Row, Col, Typography, Carousel, Button, Divider } from "antd";
+import { Card, Row, Col, Typography, Carousel, Button } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import Seo from "../components/Seo";
 import { pageSEO } from "../components/Seo.config";
 import cover_1 from "../assets/Cover_new1.jpg";
 import cover_2 from "../assets/Cover_new2.jpg";
 import cover_3 from "../assets/Cover_new3.jpg";
-import BIM from "../assets/BIM1.avif";
-import pipelineServices from "../assets/pipeline_services.jpg";
+import BIM from "../assets/BIM.jpg";
+import pipelineServices from "../assets/pipes.webp";
 import office from "../assets/Office (1).webp";
-import oilAndGas from "../assets/Oil&GAS.jpg";
-import publicInfrastructure from "../assets/infrastructure.jpg";
-import EPC from "../assets/EPC.png";
-import consultancy from "../assets/consultancy.jpg";
-// import BIM_Cover from "../assets/cover2.jpg";
-// import tower from "../assets/Residential-Tower.jpg";
-// import Gas from "../assets/Gas_pipeline.jpg";
-// import complex from "../assets/Residential-complex.jpg";
+import oilAndGas from "../assets/oil n gas 2.jpg";
+import publicInfrastructure from "../assets/public infrastructure.webp";
+import EPC from "../assets/civil.jpg";
+import consultancy from "../assets/construction.jpg";
 import { Link } from "react-router-dom";
-// import { Link, NavLink } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
 
 const Home = () => {
   const carouselRef = useRef(null);
-  // const navigate = useNavigate();
 
   const heroSlides = [
     {
@@ -62,7 +55,7 @@ const Home = () => {
         "Cost Efficiency",
         "Faster Project Delivery",
         "Sustainable Design",
-      ],
+    ],
     },
     {
       icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
@@ -152,48 +145,12 @@ const Home = () => {
     // },
   ];
 
-  // const projects = [
-  //   {
-  //     image: complex,
-  //     title: "Luxury Residential Complex",
-  //     description:
-  //       "Provided architectural and structural consultancy for a luxury residential complex featuring 200+ apartments.",
-  //     location: "Singapore",
-  //     year: "2023",
-  //   },
-
-  //   {
-  //     image: Gas,
-  //     title: " Gas Pipeline",
-  //     description:
-  //       "Designed a 200-km natural gas pipeline with advanced flow analysis to ensure optimal transportation efficiency.",
-  //     location: "London, UK",
-  //     year: "2022",
-  //   },
-  //   {
-  //     image: tower,
-  //     title: "MEP Modeling and Coordination Services",
-  //     description:
-  //       "MEP modeling and coordination with Architectural and Structural trade for a NY-based 238,159 SQFT, 18-story residential project.",
-  //     location: "New York, USA",
-  //     year: "2023",
-  //   },
-  // ];
-
-  // const stats = [
-  //   { number: "500+", label: "Projects Completed" },
-  //   { number: "50+", label: "Expert Engineers" },
-  //   { number: "20+", label: "Years Experience" },
-  //   { number: "100%", label: "Client Satisfaction" },
-  // ];
-
   return (
     <>
       <Seo {...pageSEO.home} />
-      <div className="h-full w-full md:relative bg-[#f5f5f5]">
+      <div className="h-full w-full md:relative bg-primary">
         <section className="relative h-screen group overflow-hidden">
           <div className="relative h-full">
-            {/* Carousel Navigation Arrows */}
             <button
               onClick={() => carouselRef.current.prev()}
               className="carousel-navigation absolute left-4 top-1/2 z-20 transform -translate-y-1/2 w-12 h-12 
@@ -214,7 +171,7 @@ const Home = () => {
             >
               <RightOutlined className="text-white text-xl" />
             </button>
-            <div className="absolute inset-0 flex items-center justify-start z-30 px-24 ">
+            {/* <div className="absolute inset-0 flex items-center justify-start z-30 px-24 ">
               <div className="max-w-2xl">
                 <Title className="!text-white mb-6 !text-5xl !font-bold">
                   WHERE DESIGN MEETS ENGINEERING MASTERY
@@ -232,7 +189,7 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <Carousel
               ref={carouselRef}
@@ -293,13 +250,12 @@ const Home = () => {
             </Carousel>
           </div>
         </section>
-        <div className="md:w-[90%] mx-auto max-md:w-full mt-10">
+        <div className="md:w-[90%] bg-black mx-auto max-md:w-full mt-10">
           <section className="py-14">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                {/* Content Section */}
                 <div data-aos="fade-left" data-aos-duration="2000">
-                  <Title level={2} className="mb-6">
+                  <Title level={2} className="mb-6 !text-white">
                     <span className="font-bold">Welcome</span>
                     <span className="font-bold"> To </span>
                     <span className=" text-[#DC143C]  font-bold">Dominion</span>
@@ -308,7 +264,7 @@ const Home = () => {
                       Engineering
                     </span>
                   </Title>
-                  <Paragraph className="text-gray-700 text-lg leading-8 mb-4">
+                  <Paragraph className="main-text text-lg leading-8 mb-4">
                     At <strong>Dominion Engineering Services</strong>, we pride
                     ourselves on delivering innovative and reliable engineering
                     solutions. With a team of highly skilled professionals and a
@@ -323,7 +279,7 @@ const Home = () => {
                   collaboration, quality, and sustainability in everything we
                   do.
                 </Paragraph> */}
-                  <Paragraph className="text-gray-700 text-lg leading-8">
+                  <Paragraph className="main-text text-lg leading-8">
                     With a strong foundation in multi-disciplinary engineering—
                     including electrical, mechanical, civil, process, and
                     architectural domains—we stand as a trusted partner for
@@ -348,38 +304,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-          {/* <section
-          data-aos="zoom-in"
-          className=" py-8 md:w-[95%] mx-auto max-md:w-full mt-4 rounded-2xl bg-[#fff] shadow-2xl shadow-sky-700"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Row gutter={[24, 24]} className="text-center">
-              {stats.map((stat, index) => (
-                <Col
-                  xs={12}
-                  md={6}
-                  key={index}
-                  data-aos="fade-right"
-                  data-aos-duration="2000"
-                >
-                  <Title
-                    level={1}
-                    className="text-blue-700 mb-2 font-bold"
-                    style={{ color: "#007add", fontWeight: "bolder" }}
-                  >
-                    {stat.number}
-                  </Title>
-                  <Paragraph className="text-black text-md font-bold">
-                    {stat.label}
-                  </Paragraph>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        </section> */}
-
-          {/* Services Section */}
-          <section className="my-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
+          <section className="py-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
             <Title
               level={2}
               className="max-w-7xl mb-12 pt-5 md:w-[95%]"
@@ -390,7 +315,11 @@ const Home = () => {
                 Our Services
               </span>
             </Title>
-            <Divider />
+            <hr
+              data-aos="fade-left"
+              data-aos-duration="500"
+              className="p-4 md:w-[99%]"
+            />
             <div className="max-w-7xl ">
               <Row gutter={[24, 24]}>
                 {services.map((service, index) => (
@@ -410,7 +339,6 @@ const Home = () => {
                               alt={service.title}
                               className="w-full h-72 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
                             />
-                            {/* Text Overlay */}
                             <div className="absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-65 hover:bg-opacity-45 rounded-md px-4 pb-4">
                               <p className="text-[#70eee8] font-bold text-lg mb-2 text-left">
                                 {service.title}
@@ -431,116 +359,7 @@ const Home = () => {
               </Row>
             </div>
           </section>
-
-          {/* Featured Projects Section */}
-          {/* <section className="pb-14 ">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Title
-              level={2}
-              className="mb-12 pt-5 md:w-[95%]"
-              data-aos="fade-left"
-              data-aos-duration="500"
-            >
-              <span className="text-[#007add] pl-2 font-bold">
-                Featured Projects
-              </span>
-            </Title>
-            <Divider />
-            <Link to="/projects">
-              <Row gutter={[24, 24]}>
-                {projects.map((project, index) => (
-                  <Col xs={24} md={8} key={index}>
-                    <Card
-                      hoverable
-                      data-aos="flip-left"
-                      data-aos-duration="2000"
-                      cover={
-                        <div className="h-64 relative overflow-hidden">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                          />
-                        </div>
-                      }
-                      className="h-full !bg-gray-300"
-                    >
-                      <Card.Meta
-                        title={
-                          <div className="flex justify-between  items-center">
-                            <span>{project.title}</span>
-                            <span className="text-sm">{project.year}</span>
-                          </div>
-                        }
-                        description={
-                          <div>
-                            <p className="mb-2 text-black">
-                              {project.description}
-                            </p>
-                            <p className="text-blue-600">{project.location}</p>
-                            <p className="text-[#c44343] text-md font-bold text-left">
-                              Readmore
-                            </p>
-                          </div>
-                        }
-                      />
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Link>
-          </div>
-        </section> */}
-
-          {/* Stats Section */}
-          {/* <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Row gutter={[24, 24]} className="text-center">
-              {stats.map((stat, index) => (
-                <Col xs={12} md={6} key={index}>
-                  <Title level={2} className="text-blue-600 mb-2">
-                    {stat.number}
-                  </Title>
-                  <Paragraph className="text-gray-600">{stat.label}</Paragraph>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        </section> */}
         </div>
-
-        {/* Call to Action Section */}
-        {/* <section className="py-16 bg-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Title level={2} className="text-white mb-6">
-            <span className="text-white">Ready to Start Your Project?</span>
-          </Title>
-          <Paragraph className="text-lg mb-8">
-            <span className="text-white">
-              Let's work together to bring your engineering vision to life.
-            </span>
-          </Paragraph>
-          <NavLink
-            to="/projects"
-            className="group inline-flex items-center justify-center gap-2 px-6 py-3 text-lg font-medium border-2 border-black rounded-lg hover:bg-black hover:text-white transition-all duration-300"
-          >
-            Get In Touch
-            <svg
-              className="w-5 h-5 transform transition-transform group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </NavLink>
-        </div>
-      </section> */}
       </div>
     </>
   );

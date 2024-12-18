@@ -42,16 +42,16 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200">
+    <div className="min-h-screen bg-primary">
       <section className="text-white relative h-80">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 opacity-50"></div>
         <div className="absolute inset-0">
           <img alt="Contact Us" src={Contact} className="w-full h-full" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Title level={1} className="text-white text-center mb-6 pt-28">
-              <span className="text-white font-bold text-5xl">Contact Us</span>
+            <Title level={1} className="!text-white text-center mb-6 pt-28">
+              <span className="!text-white font-bold text-5xl">Contact Us</span>
             </Title>
             <Paragraph className="text-center text-xl text-[#FEFEFE] max-w-3xl mx-auto">
               We're here to provide innovative engineering solutions tailored to
@@ -68,8 +68,10 @@ const ContactUs = () => {
             {/* Contact Information */}
             <Col xs={24} lg={8}>
               <div className="mb-8">
-                <Title level={3}>Get in Touch</Title>
-                <Paragraph className="text-gray-600">
+                <Title level={3} className="!text-white">
+                  Get in Touch
+                </Title>
+                <Paragraph className="main-text">
                   We're here to help and answer any question you might have. We
                   look forward to hearing from you.
                 </Paragraph>
@@ -77,24 +79,24 @@ const ContactUs = () => {
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <MailOutlined className="text-blue-600 text-xl mt-1 mr-4" />
-                  <div>
-                    <Text strong className="block">
+                  <MailOutlined className="text-white text-xl mt-1 mr-4" />
+                  <div className="text-white group">
+                    <Text strong className="block text-white">
                       Email
                     </Text>
-                    <Text className="text-gray-600">
+                    <Text className="text-gray-300">
                       design@dominionengg.com
                     </Text>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <GlobalOutlined className="text-blue-600 text-xl mt-1 mr-4" />
+                  <GlobalOutlined className="text-white text-xl mt-1 mr-4" />
                   <div>
-                    <Text strong className="block">
+                    <Text strong className="block text-white">
                       Headquarters
                     </Text>
-                    <Text className="text-gray-600">
+                    <Text className="text-gray-300">
                       Madhu Enclave 4th floor, Masab Tank, Hyderabad, Telangana-
                       500028
                     </Text>
@@ -104,10 +106,10 @@ const ContactUs = () => {
                 <div className="flex items-start">
                   <ClockCircleOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
-                    <Text strong className="block">
+                    <Text strong className="block text-white">
                       Business Hours
                     </Text>
-                    <Text className="text-gray-600">
+                    <Text className="text-gray-300">
                       Monday - Friday: 9:00 AM - 6:00 PM <br />
                       Saturday - Sunday: Closed
                     </Text>
@@ -118,7 +120,7 @@ const ContactUs = () => {
 
             {/* Contact Form */}
             <Col xs={24} lg={16}>
-              <Card className="shadow-lg bg-indigo-300">
+              <Card className="shadow-lg bg-gray-400">
                 <Title level={3} className="mb-6 !font-bold">
                   Send Us a Message
                 </Title>
