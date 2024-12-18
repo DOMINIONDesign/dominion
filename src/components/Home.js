@@ -55,7 +55,7 @@ const Home = () => {
         "Cost Efficiency",
         "Faster Project Delivery",
         "Sustainable Design",
-    ],
+      ],
     },
     {
       icon: <img alt="BIM" src={pipelineServices} className="text-4xl" />,
@@ -121,28 +121,6 @@ const Home = () => {
         "Advanced Technology",
       ],
     },
-    // {
-    //   icon: <img alt="BIM" src={EPC} className="text-4xl" />,
-    //   title: "EPC",
-    //   description:
-    //     "We offer end-to-end EPC solutions, delivering integrated services with a focus on cost-effectiveness, quality, and safety.",
-    //   features: [
-    //     "End-to-End Project Solutions",
-    //     "Timely Delivery",
-    //     "High-Quality Engineering and Construction",
-    //   ],
-    // },
-    // {
-    //   icon: <img alt="BIM" src={consultancy} className="text-4xl" />,
-    //   title: "Construction Design",
-    //   description:
-    //     "We specialize in structural, civil, and architectural designs, delivering precise blueprints for all project types",
-    //   features: [
-    //     "Project Feasibility Analysis",
-    //     "Collaborative Approach",
-    //     "Advanced Technology",
-    //   ],
-    // },
   ];
 
   return (
@@ -171,14 +149,18 @@ const Home = () => {
             >
               <RightOutlined className="text-white text-xl" />
             </button>
-            {/* <div className="absolute inset-0 flex items-center justify-start z-30 px-24 ">
-              <div className="max-w-2xl">
+            <div className="absolute inset-0 flex items-center justify-start px-24 z-10">
+              {/* Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-50 pointer-events-none"></div>
+
+              {/* Text Content */}
+              <div className="relative max-w-2xl z-10">
                 <Title className="!text-white mb-6 !text-5xl !font-bold">
                   WHERE DESIGN MEETS ENGINEERING MASTERY
                 </Title>
                 <div className="flex pt-5">
                   <Link to="/services">
-                    <button className="px-8 py-3 bg-blue-700  text-white rounded-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform">
+                    <button className="px-8 py-3 bg-blue-700 text-white rounded-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform">
                       Services
                     </button>
                   </Link>
@@ -189,7 +171,7 @@ const Home = () => {
                   </Link>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <Carousel
               ref={carouselRef}

@@ -21,7 +21,7 @@ const ContactUs = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/user/mail",
+        "/user/mail",
         values
       );
       console.log("Form submitted successfully", response.data);
@@ -30,7 +30,7 @@ const ContactUs = () => {
       });
       // message.success("Thank you for your message. We will contact you soon!");
       form.resetFields();
-    } catch (error) {
+    } catch (error) { 
       toast.error("Error submitting form", {
         autoClose: 3000,
       });

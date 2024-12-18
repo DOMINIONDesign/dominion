@@ -114,7 +114,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/user/mail",
+        "/user/mail",
         values
       );
       console.log("Form submitted successfully", response.data);
@@ -166,7 +166,7 @@ function App() {
 
       {/* Floating "Contact Us" Icon */}
       <div
-        className="fixed bottom-4 right-4 bg-blue-500 text-white rounded-full p-4 shadow-lg hover:bg-blue-600 cursor-pointer"
+        className="fixed z-50 bottom-4 right-4 bg-blue-500 text-white rounded-full p-4 shadow-lg hover:bg-blue-600 cursor-pointer"
         onClick={togglePopup}
       >
         {!isPopupOpen && (
