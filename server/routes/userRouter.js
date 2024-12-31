@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { transporter } = require("../utilities/mail");
 router.post("/mail", async (req, res) => {
-  const { email, name, mobile="NA", message } = req.body;
+  const { email, name, mobile = "NA", message } = req.body;
   const mailOptions = {
-    from: "shaikriyaz222@gmail.com",
-    to: "dominiondec@gmail.com;design@dominionengg.com",
+    from: "dominiondec@gmail.com",
+    to: "design@dominionengg.com",
     subject: `User ${name} wants to get in touch with you!!`,
     html: `
       <html>

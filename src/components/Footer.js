@@ -3,8 +3,8 @@ import { Row, Col, Typography } from "antd";
 import { Link } from "react-router-dom";
 import {
   FacebookOutlined,
-  TwitterOutlined,
-  LinkedinOutlined,
+  // TwitterOutlined,
+  // LinkedinOutlined,
   InstagramOutlined,
   EnvironmentOutlined,
   MailOutlined,
@@ -62,7 +62,7 @@ const Footer = () => {
                       >
                         <FacebookOutlined />
                       </Link>
-                      <Link
+                      {/* <Link
                         to="#"
                         className="text-gray-400 hover:text-blue-500 text-xl"
                       >
@@ -73,7 +73,7 @@ const Footer = () => {
                         className="text-gray-400 hover:text-blue-500 text-xl"
                       >
                         <LinkedinOutlined />
-                      </Link>
+                      </Link> */}
                       <Link
                         to="https://www.instagram.com/dominionengg"
                         className="text-gray-400 hover:text-blue-500 text-xl"

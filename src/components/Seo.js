@@ -106,6 +106,27 @@ const Seo = ({
     faviconurl,
     og,
   ]);
+  useEffect(() => {
+    const schemaData = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Dominion Engineering",
+      url: "https://dominionengg.com",
+      description: "Leading provider of engineering solutions.",
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "design@dominionengg.com",
+        contactType: "Customer Service",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi"],
+      },
+    };
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify(schemaData);
+    document.head.appendChild(script);
+  }, []);
 
   return null;
 };

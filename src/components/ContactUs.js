@@ -4,11 +4,13 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import {
   MailOutlined,
-  ClockCircleOutlined,
+  // ClockCircleOutlined,
   GlobalOutlined,
   SendOutlined,
 } from "@ant-design/icons";
 import Contact from "../assets/Contact-Us-2.jpg";
+import Seo from "./Seo";
+import { pageSEO } from "./Seo.config";
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
@@ -20,17 +22,14 @@ const ContactUs = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const response = await axios.post(
-        "/user/mail",
-        values
-      );
+      const response = await axios.post("/user/mail", values);
       console.log("Form submitted successfully", response.data);
       toast.success("Form submitted successfully!!", {
         autoClose: 3000,
       });
       // message.success("Thank you for your message. We will contact you soon!");
       form.resetFields();
-    } catch (error) { 
+    } catch (error) {
       toast.error("Error submitting form", {
         autoClose: 3000,
       });
@@ -43,6 +42,7 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen bg-primary">
+      <Seo {...pageSEO.contact} />
       <section className="text-white relative h-80">
         <div className="absolute inset-0 opacity-50"></div>
         <div className="absolute inset-0">
@@ -103,7 +103,7 @@ const ContactUs = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start">
+                {/* <div className="flex items-start">
                   <ClockCircleOutlined className="text-blue-600 text-xl mt-1 mr-4" />
                   <div>
                     <Text strong className="block text-white">
@@ -114,7 +114,7 @@ const ContactUs = () => {
                       Saturday - Sunday: Closed
                     </Text>
                   </div>
-                </div>
+                </div> */}
               </div>
             </Col>
 

@@ -2,12 +2,15 @@ import React from "react";
 import { Typography, Row, Col } from "antd";
 import aboutus from "../assets/about_us1.jpg";
 import Mission from "../assets/projects.avif";
+import { pageSEO } from "./Seo.config";
+import Seo from "./Seo";
 
 const { Title, Paragraph } = Typography;
 
 const AboutUs = () => {
   return (
     <div className="bg-black">
+      <Seo {...pageSEO.about} />
       {/* Hero Section with Background Image */}
       <section className="main-text relative h-80">
         <div className="absolute inset-0 bg-black opacity-50"></div>
