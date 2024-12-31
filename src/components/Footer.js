@@ -54,7 +54,12 @@ const Footer = () => {
                     fresh approach in structural design and consulting,
                     committed to excellence from the outset.
                     <div className="flex items-center space-x-4 mt-4">
-                      <Link to="#" className="text-xl">
+                      <Link
+                        to="https://www.facebook.com/share/18NgTQ2tGv/?mibextid=wwXIfr"
+                        className="text-xl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <FacebookOutlined />
                       </Link>
                       <Link

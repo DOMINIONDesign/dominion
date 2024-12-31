@@ -134,7 +134,7 @@ const Home = () => {
               className="carousel-navigation absolute left-4 top-1/2 z-20 transform -translate-y-1/2 w-12 h-12 
       flex items-center justify-center bg-white bg-opacity-20 rounded-full 
       transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-opacity-30
-      translate-x-[-20px] group-hover:translate-x-0"
+      translate-x-[-20px] group-hover:translate-x-0 sm:w-10 sm:h-10"
               aria-label="Previous slide"
             >
               <LeftOutlined className="text-white text-xl" />
@@ -144,7 +144,7 @@ const Home = () => {
               className="carousel-navigation absolute right-4 top-1/2 z-20 transform -translate-y-1/2 w-12 h-12 
       flex items-center justify-center bg-white bg-opacity-20 rounded-full 
       transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-opacity-30
-      translate-x-[20px] group-hover:translate-x-0"
+      translate-x-[20px] group-hover:translate-x-0 sm:w-10 sm:h-10"
               aria-label="Next slide"
             >
               <RightOutlined className="text-white text-xl" />
@@ -155,7 +155,7 @@ const Home = () => {
 
               {/* Text Content */}
               <div className="relative max-w-2xl z-10">
-                <Title className="!text-white mb-6 !text-5xl !font-bold">
+                <Title className="!text-white mb-6 !text-4xl md:!text-5xl !font-bold">
                   WHERE DESIGN MEETS ENGINEERING MASTERY
                 </Title>
                 <div className="flex pt-5">
@@ -165,7 +165,7 @@ const Home = () => {
                     </button>
                   </Link>
                   <Link to="/contact" className="pl-10">
-                    <button className="px-8 py-3 bg-[#DC143C] text-white rounded-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform">
+                    <button className="px-8 w-36 py-3 bg-[#DC143C] text-white rounded-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform">
                       Contact Us
                     </button>
                   </Link>

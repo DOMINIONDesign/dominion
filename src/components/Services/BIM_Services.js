@@ -25,7 +25,7 @@ export default function BIM() {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex justify-center items-center">
             <div className="max-w-3xl text-center">
-              <Title className="!text-white mb-6 !text-5xl !uppercase">
+              <Title className="!text-white mb-6 !uppercase !text-xl md:!text-5xl">
                 Building Information Model
                 <br />
                 (BIM)

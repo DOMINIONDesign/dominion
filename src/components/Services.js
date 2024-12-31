@@ -78,11 +78,11 @@ const ServicesPage = () => {
           <div className="relative z-10 h-full flex flex-col justify-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <Title level={1} className="main-text  text-center pt-20">
-                <span className="main-text  font-bold text-5xl">
+                <span className="main-text  font-bold text-2xl md:text-5xl">
                   Discover Our Expertise
                 </span>
               </Title>
-              <Paragraph className="text-center text-xl text-gray-100 max-w-3xl mx-auto font-semibold">
+              <Paragraph className="text-center text-sm md:text-xl text-gray-100 max-w-3xl mx-auto font-semibold">
                 Offering cutting-edge engineering solutions that drive success
                 through innovation, precision, and sustainability.
               </Paragraph>
