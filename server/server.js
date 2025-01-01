@@ -9,7 +9,14 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json()); // Add this to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Add this to parse URL-encoded bodies
-
+app.use((req, res, next) => {
+  if (req.hostname.startsWith("www.")) {
+    const newHost = req.hostname.replace("www.", "");
+    res.redirect(301, `${req.protocol}://${newHost}${req.originalUrl}`);
+  } else {
+    next();
+  }
+});
 // Serve static files from the React app (built)
 // Fix: Don't include index.html in static path
 app.use(express.static(path.join(__dirname, "../build")));
