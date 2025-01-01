@@ -162,9 +162,7 @@ function App() {
         {/* <Route path="/projects" element={<Projects />} /> */}
         <Route path="*" element={<Home />} />
       </Routes>
-      <Footer />
-
-      {/* Floating "Contact Us" Icon */}
+      <Footer />    
       <div
         className="fixed z-50 bottom-4 right-4 bg-blue-500 text-white rounded-full p-4 shadow-lg hover:bg-blue-600 cursor-pointer"
         onClick={togglePopup}
@@ -200,8 +198,6 @@ function App() {
           </svg>
         )}
       </div>
-
-      {/* Contact Us Popup */}
       {isPopupOpen && (
         <div
           className="z-50 fixed bottom-20 right-4 mb-2 bg-white rounded-lg shadow-lg w-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
@@ -309,7 +305,6 @@ function App() {
         </div>
       )}
       <ToastContainer />
-      {/* <Location /> */}
     </div>
   );
 }

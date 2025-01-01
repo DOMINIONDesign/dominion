@@ -134,7 +134,7 @@ const Home = () => {
               className="carousel-navigation absolute left-4 top-1/2 z-20 transform -translate-y-1/2 w-12 h-12 
       flex items-center justify-center bg-white bg-opacity-20 rounded-full 
       transition-all duration-300 opacity-0 group-hover:opacity-100 hover:bg-opacity-30
-      translate-x-[-20px] group-hover:translate-x-0 sm:w-10 sm:h-10"
+      translate-x-[-20px] group-hover:translate-x-0 sm:w-10  sm:h-10"
               aria-label="Previous slide"
             >
               <LeftOutlined className="text-white text-xl" />
@@ -149,22 +149,19 @@ const Home = () => {
             >
               <RightOutlined className="text-white text-xl" />
             </button>
-            <div className="absolute inset-0 flex items-center justify-start px-24 z-10">
-              {/* Gradient Background */}
+            <div className="absolute inset-0 flex  items-center max-md:flex max-md:!justify-start justify-start px-24 z-10">
               <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-50 pointer-events-none"></div>
-
-              {/* Text Content */}
-              <div className="relative max-w-2xl z-10">
-                <Title className="!text-white mb-6 !text-4xl md:!text-5xl !font-bold">
+              <div className="relative max-w-2xl sm:!w-full z-10">
+                <h4 className="!text-white mb-6 max-md:!text-2xl md:!text-5xl !font-bold">
                   WHERE DESIGN MEETS ENGINEERING MASTERY
-                </Title>
+                </h4>
                 <div className="flex pt-5">
                   <Link to="/services">
                     <button className="px-8 py-3 bg-blue-700 text-white rounded-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform">
                       Services
                     </button>
                   </Link>
-                  <Link to="/contact" className="pl-10">
+                  <Link to="/contact" className="md:pl-10 max-md:pl-3">
                     <button className="px-8 w-36 py-3 bg-[#DC143C] text-white rounded-md hover:bg-white hover:text-blue-600 transition-all duration-300 transform">
                       Contact Us
                     </button>
@@ -184,48 +181,17 @@ const Home = () => {
               {heroSlides.map((slide, index) => (
                 <div key={index} className="h-[90vh]">
                   <div className="relative h-full">
-                    {/* Background Image */}
                     <div className="absolute inset-0">
                       <img
                         src={slide.bgImage}
                         alt=""
                         className="w-screen h-screen object-cover animate-kenburns"
                       />
-                      {/* Gradient Overlay */}
+
                       <div
                         className={`absolute inset-0 bg-gradient-to-r ${slide.bgClass} opacity-20`}
                       />
                     </div>
-
-                    {/* Content */}
-                    {/* <div className="relative z-10 h-full flex items-center">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                      <div className="text-center text-white">
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 animate__animated animate__fadeInDown">
-                          {slide.title}
-                        </h1>
-                        <p className="text-xl md:text-2xl mb-8 animate__animated animate__fadeInUp">
-                          {slide.subtitle}
-                        </p>
-                        <div className="animate__animated animate__fadeInUp animate__delay-1s">
-                          <Button
-                            type="primary"
-                            size="large"
-                            className="mr-4 hover:scale-105 transition-transform"
-                          >
-                            <Link to="/services"> Our Services</Link>
-                          </Button>
-                          <Button
-                            size="large"
-                            className="hover:scale-105 transition-transform"
-                            ghost
-                          >
-                            <Link to="/contact"> Contact Us</Link>
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
                   </div>
                 </div>
               ))}
@@ -236,31 +202,26 @@ const Home = () => {
           <section className="py-14">
             <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div data-aos="fade-left" data-aos-duration="2000">
+                <div
+                  data-aos-duration="2000"
+                  data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                >
                   <Title level={2} className="mb-6 !text-white">
                     <span className="font-bold">Welcome</span>
                     <span className="font-bold"> To </span>
                     <span className=" text-[#DC143C]  font-bold">Dominion</span>
                     <span className="text-[#2c3ea7] font-bold">
-                      {" "}
                       Engineering
                     </span>
                   </Title>
                   <Paragraph className="main-text text-lg leading-8 mb-4">
-                    At <strong>Dominion Engineering Services</strong>, we pride
-                    ourselves on delivering innovative and reliable engineering
-                    solutions. With a team of highly skilled professionals and a
-                    passion for excellence, we provide tailored expertise across
-                    a range of disciplines, ensuring every project is executed
-                    with precision and efficiency.
+                    At <strong>Dominion Engineering consultancy Pvt Ltd</strong>
+                    , we pride ourselves on delivering innovative and reliable
+                    engineering solutions. With a team of highly skilled
+                    professionals and a passion for excellence, we provide
+                    tailored expertise across a range of disciplines, ensuring
+                    every project is executed with precision and efficiency.
                   </Paragraph>
-                  {/* <Paragraph className="text-gray-700 text-lg leading-8 mb-4">
-                  Our mission is to empower industries by offering cutting-edge
-                  engineering designs and solutions that align with your goals.
-                  From concept development to detailed execution, we prioritize
-                  collaboration, quality, and sustainability in everything we
-                  do.
-                </Paragraph> */}
                   <Paragraph className="main-text text-lg leading-8">
                     With a strong foundation in multi-disciplinary engineering—
                     including electrical, mechanical, civil, process, and
@@ -274,9 +235,10 @@ const Home = () => {
                     </Button>
                   </Link>
                 </div>
-
-                {/* Image Section */}
-                <div data-aos="fade-right" data-aos-duration="2000">
+                <div
+                  data-aos={window.innerWidth >= 768 ? "fade-right" : undefined}
+                  data-aos-duration="2000"
+                >
                   <img
                     src={office}
                     alt="Dominion Office"
@@ -287,23 +249,27 @@ const Home = () => {
             </div>
           </section>
           <section className="py-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
-            <Title
-              level={2}
-              className="max-w-7xl mb-12 pt-5 md:w-[95%]"
-              data-aos="fade-left"
-              data-aos-duration="500"
-            >
-              <span className="text-[#007add] pl-2 font-bold">
-                Our Services
-              </span>
-            </Title>
-            <hr
-              data-aos="fade-left"
-              data-aos-duration="500"
-              className="p-4 md:w-[99%]"
-            />
-            <div className="max-w-7xl ">
-              <Row gutter={[24, 24]}>
+            <div className="w-full">
+              <Title
+                level={2}
+                className="max-w-7xl mb-12 pt-5 md:w-[95%]"
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+              >
+                <span className="text-[#007add] pl-2 font-bold">
+                  Our Services
+                </span>
+              </Title>
+            </div>
+            <div className="w-full">
+              <hr
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+                className="p-4 max-md:!mx-3 md:w-[99%]"
+              />
+            </div>
+            <div className="max-w-7xl">
+              <Row gutter={[24, 24]} style={{ marginLeft: 0, marginRight: 0 }}>
                 {services.map((service, index) => (
                   <Col xs={24} sm={12} lg={8} key={index}>
                     <Link to={service.link}>
@@ -314,7 +280,6 @@ const Home = () => {
                         data-aos-duration="1000"
                       >
                         <div className="relative text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
-                          {/* Image Wrapper */}
                           <div className="relative">
                             <img
                               src={service.icon.props.src}

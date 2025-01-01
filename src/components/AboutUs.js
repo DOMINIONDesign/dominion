@@ -59,7 +59,7 @@ const AboutUs = () => {
                   tailored solutions to clients in industrial, commercial, and
                   public sectors.
                 </Paragraph>
-                <Title level={4} className="!text-white">
+                <Title level={4} className="!text-white !uppercase">
                   Our Mission
                 </Title>
                 <Paragraph className="main-text mb-6">
@@ -68,7 +68,7 @@ const AboutUs = () => {
                   fostering efficiency, sustainability, and long-term value in
                   every project.
                 </Paragraph>
-                <Title level={4} className="!text-white">
+                <Title level={4} className="!text-white !uppercase">
                   Our Vision
                 </Title>
                 <Paragraph className="main-text">

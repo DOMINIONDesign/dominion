@@ -4,7 +4,7 @@ import { Typography } from "antd";
 import BIM from "../assets/BIM_services.jpg";
 import { Outlet } from "react-router-dom";
 import pipelineServices from "../assets/services_pipeline.webp";
-import oilAndGas from "../assets/services_oil&gas.jpg";
+import oilAndGas from "../assets/oils.webp";
 import aboutus from "../assets/services_Background.avif";
 import publicInfrastructure from "../assets/services_public.png";
 // import Image from "../assets/services_Background.avif";
@@ -153,7 +153,7 @@ const ServicesPage = () => {
                     }`}
                   >
                     <Title level={2} className="text-3xl font-extrabold ">
-                      <span className="text-[#DC143C] font-bold">
+                      <span className="text-[#DC143C] font-bold !uppercase">
                         {" "}
                         {service.title}
                       </span>

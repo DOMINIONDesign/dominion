@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Breadcrumb } from "antd";
 import Construction from "../../assets/oil n gas 2.jpg";
-import aboutus from "../../assets/oil n gas 2.jpg";
+import aboutus from "../../assets/Oil&GAS.jpg";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { pageSEO } from "../Seo.config";
