@@ -1,7 +1,8 @@
 import React from "react";
 import { Typography, Breadcrumb } from "antd";
-import Construction from "../../assets/construction1.jpg";
-import aboutus from "../../assets/civil.jpg"; // New Image for EPC Services
+import Construction from "../../assets/epc1.jpeg";
+import aboutus from "../../assets/asian-two-construction-engineers-supervising-progress-of-construction-project-and-crane-background-photo.jpg";
+import offerImage from "../../assets/civil.jpg";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { pageSEO } from "../Seo.config";
@@ -19,7 +20,7 @@ export default function EPC() {
             <img
               src={Construction}
               alt="Construction Design"
-              className="w-full h-full object-cover lg:object-[20%_70%]"
+              className="w-full h-full object-cover lg:object-[20%_60%] blur-[2px]"
             />
           </div>
 
@@ -141,6 +142,68 @@ export default function EPC() {
                         Safety is a top priority in EPC projects, with strict
                         adherence to safety protocols and regulations throughout
                         the project's execution.
+                      </li>
+                    </ul>
+                  </Paragraph>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="my-6">
+            <h1 className="py-4 text-xl uppercase">
+              ABout EPC (Engineering, Procurement, and Construction) Design
+            </h1>
+            <hr />
+
+            <div className="flex flex-col md:flex-row items-start mt-6">
+              <div className="md:w-1/2">
+                <img
+                  src={offerImage}
+                  alt="OfferImage"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              <div className="md:w-1/2 pl-0 md:pl-6">
+                <div className="pb-2">
+                  <Title className="!text-2xl !text-white pb-4">
+                    What we offer:
+                  </Title>
+                  <Paragraph className="text-2 !text-gray-300">
+                    <ul className="list-disc pl-6">
+                      <li>
+                        Integrated design consultancy for large-scale EPC
+                        projects.
+                      </li>
+                      <li>
+                        Tailored engineering solutions for seamless procurement
+                        and construction phases.
+                      </li>
+                      <li>
+                        Comprehensive project designs that align with industry
+                        best practices.
+                      </li>
+                    </ul>
+                  </Paragraph>
+                </div>
+                <div className="pb-2">
+                  <Title className="!text-2xl !text-white pb-4">
+                    How We Help:
+                  </Title>
+                  <Paragraph className="text-2 !text-gray-300">
+                    <ul className="list-disc pl-6">
+                      <li>
+                        Streamline Processes: Provide cohesive designs that
+                        simplify project execution.
+                      </li>
+                      <li>
+                        Reduce Costs: Optimize material use and construction
+                        schedules.
+                      </li>
+                      <li>
+                        Enhance Collaboration: Ensure effective integration
+                        between engineering, procurement, and construction
+                        teams.
                       </li>
                     </ul>
                   </Paragraph>

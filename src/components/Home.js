@@ -1,8 +1,13 @@
 // src/components/Home.js
 import React, { useRef } from "react";
-import { Card, Row, Col, Typography, Carousel, Button } from "antd";
+import { Card, Row, Col, Typography, Carousel, Button, Collapse } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import Seo from "../components/Seo";
+// import offerImage from "../assets/BIM Title image.jpg";
+import why from "../assets/why.webp";
+import why1 from "../assets/why1.jpg";
+import why2 from "../assets/why2.webp";
+import why3 from "../assets/why3.png";
 import { pageSEO } from "../components/Seo.config";
 import cover_1 from "../assets/Cover_new1.jpg";
 import cover_2 from "../assets/Cover_new2.jpg";
@@ -11,27 +16,28 @@ import BIM from "../assets/BIM.jpg";
 import pipelineServices from "../assets/pipes.webp";
 import office from "../assets/Office (1).webp";
 import oilAndGas from "../assets/oil n gas 2.jpg";
-import publicInfrastructure from "../assets/public infrastructure.webp";
+import publicInfrastructure from "../assets/infrastructure.jpg";
 import EPC from "../assets/civil.jpg";
 import consultancy from "../assets/construction.jpg";
 import { Link } from "react-router-dom";
 
 const { Title, Paragraph } = Typography;
+// const { Panel } = Collapse;
 
 const Home = () => {
   const carouselRef = useRef(null);
 
   const heroSlides = [
     {
-      title: "Innovation in Design",
-      subtitle: "Pushing boundaries with cutting-edge technology",
-      bgImage: cover_3,
-      bgClass: "",
-    },
-    {
       title: "Engineering Excellence for Tomorrow",
       subtitle: "Innovative solutions for complex engineering challenges",
       bgImage: cover_1,
+      bgClass: "",
+    },
+    {
+      title: "Innovation in Design",
+      subtitle: "Pushing boundaries with cutting-edge technology",
+      bgImage: cover_3,
       bgClass: "",
     },
     {
@@ -123,6 +129,37 @@ const Home = () => {
     },
   ];
 
+  const items = [
+    {
+      key: "1",
+      label: "What services does DOMINION offer?",
+      children: (
+        <p className="main-text text-md">
+          Dominion provides expert engineering and design consultancy across EPC
+          engineering, pipelines, oil & gas, BIM, public infrastructure, and
+          construction, focusing solely on creating innovative and sustainable
+          design solutions without on-field work or labor.
+        </p>
+      ),
+    },
+    {
+      key: "2",
+      label:
+        "What is the process for hiring DOMINION as an engineering consultant?",
+      children: (
+        <p className="main-text">
+          Reach out via email at{" "}
+          <a
+            href="mailto:design@dominionengg.com"
+            className="text-blue-500 hover:underline"
+          >
+            design@dominionengg.com
+          </a>{" "}
+          to share your project details, requirements, and objectives.
+        </p>
+      ),
+    },
+  ];
   return (
     <>
       <Seo {...pageSEO.home} />
@@ -149,7 +186,7 @@ const Home = () => {
             >
               <RightOutlined className="text-white text-xl" />
             </button>
-            <div className="absolute inset-0 flex  items-center max-md:flex max-md:!justify-start justify-start px-24 z-10">
+            <div className="absolute inset-0 flex justify-start  items-center z-10 max-md:pl-6 px-24">
               <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-50 pointer-events-none"></div>
               <div className="relative max-w-2xl sm:!w-full z-10">
                 <h4 className="!text-white mb-6 max-md:!text-2xl md:!text-5xl !font-bold">
@@ -209,8 +246,11 @@ const Home = () => {
                   <Title level={2} className="mb-6 !text-white">
                     <span className="font-bold">Welcome</span>
                     <span className="font-bold"> To </span>
-                    <span className=" text-[#DC143C]  font-bold">Dominion</span>
-                    <span className="text-[#2c3ea7] font-bold">
+                    <span className=" text-[#DC143C]  font-bold !uppercase">
+                      Dominion
+                    </span>
+                    <span className="text-[#DC143C]  font-bold !uppercase">
+                      {" "}
                       Engineering
                     </span>
                   </Title>
@@ -248,7 +288,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <section className="py-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
+          <section className="py-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full max-md:p-4">
             <div className="w-full">
               <Title
                 level={2}
@@ -256,9 +296,166 @@ const Home = () => {
                 data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
                 data-aos-duration="500"
               >
-                <span className="text-[#007add] pl-2 font-bold">
-                  Our Services
-                </span>
+                <div className="main-text pl-2 max-md:pl-0 font-bold !uppercase">
+                  Why Choose Dominion Engineering Consultancy ?
+                </div>
+              </Title>
+            </div>
+            <div className="w-full">
+              <hr
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+                className="px-4 pb-2 max-md:!mx-0 md:w-[99%]"
+              />
+            </div>
+            <div className="my-20">
+              <div className="flex flex-col md:flex-row items-start mt-6 gap-16">
+                <div className="md:w-1/2">
+                  <img
+                    src={why}
+                    alt="OfferImage"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="md:w-1/2 pl-0 md:pl-6">
+                  <div className="pb-2">
+                    <Title className="!text-2xl !text-white pb-4">
+                      Specialized Expertise Across Multiple Industries
+                    </Title>
+                    <Paragraph className="text-2 !text-gray-300">
+                      <ul className="list-disc pl-6">
+                        <li>
+                          Proficient in EPC engineering, pipelines, oil & gas,
+                          BIM, public infrastructure, and construction design.
+                        </li>
+                        <li>
+                          Industry-specific knowledge ensures solutions are
+                          practical, innovative, and efficient.
+                        </li>
+                        <li>
+                          We focus solely on engineering and design consultancy,
+                          leaving execution and fieldwork to contractors.
+                        </li>
+                        <li>
+                          Detailed designs, layouts, and plans tailored to
+                          enable seamless project implementation.
+                        </li>
+                      </ul>
+                    </Paragraph>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="my-20">
+              <div className="flex flex-col md:flex-row items-start mt-6 gap-16">
+                <div className="md:w-1/2 pl-0 md:pl-6">
+                  <div className="pb-2">
+                    <Title className="!text-2xl !text-white pb-4">
+                      Experienced Professionals
+                    </Title>
+                    <Paragraph className="text-2 !text-gray-300">
+                      <ul className="list-disc pl-6">
+                        <li>
+                          A team of highly skilled engineers, architects, and
+                          consultants with expertise across various disciplines.
+                        </li>
+                        <li>
+                          Continuous upskilling to stay ahead of emerging trends
+                          and technologies.
+                        </li>
+                      </ul>
+                    </Paragraph>
+                  </div>
+                </div>
+                <div className="md:w-1/2">
+                  <img
+                    src={why1}
+                    alt="OfferImage"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="my-20">
+              <div className="flex flex-col md:flex-row items-start mt-6 gap-16">
+                <div className="md:w-1/2">
+                  <img
+                    src={why2}
+                    alt="OfferImage"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="md:w-1/2 pl-0 md:pl-6">
+                  <div className="pb-2">
+                    <Title className="!text-2xl !text-white pb-4">
+                      Sustainability and Innovation
+                    </Title>
+                    <Paragraph className="text-2 !text-gray-300">
+                      <ul className="list-disc pl-6">
+                        <li>
+                          From concept development to detailed designs, Dominion
+                          offers end-to-end support.
+                          <ul>
+                            <li>
+                              Structural analysis and detailed engineering
+                              layouts.
+                            </li>
+                            <li>
+                              Feasibility studies and design validation for
+                              maximum project efficiency.
+                            </li>
+                            <li>
+                              Ongoing technical support during project
+                              implementation.
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </Paragraph>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-20">
+              <div className="flex flex-col md:flex-row items-start mt-6 gap-16">
+                <div className="md:w-1/2 pl-0 md:pl-6">
+                  <div className="pb-2">
+                    <Title className="!text-2xl !text-white pb-4">
+                      Focus on Quality and Precision
+                    </Title>
+                    <Paragraph className="text-2 !text-gray-300">
+                      <ul className="list-disc pl-6">
+                        <li>
+                          Delivering designs that prioritize safety, accuracy,
+                          and compliance with global standards.
+                        </li>
+                        <li>
+                          Rigorous quality assurance processes to ensure all
+                          outputs exceed expectations.
+                        </li>
+                      </ul>
+                    </Paragraph>
+                  </div>
+                </div>
+                <div className="md:w-1/2">
+                  <img
+                    src={why3}
+                    alt="OfferImage"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="pb-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
+            <div className="w-full">
+              <Title
+                level={2}
+                className="max-w-7xl mb-12 pt-5 md:w-[95%]"
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+              >
+                <span className="main-text pl-2 font-bold">Our Services</span>
               </Title>
             </div>
             <div className="w-full">
@@ -304,6 +501,52 @@ const Home = () => {
                   </Col>
                 ))}
               </Row>
+            </div>
+          </section>
+          <section className="pb-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full max-md:px-4">
+            <div className="w-full">
+              <Title
+                level={2}
+                className="max-w-7xl mb-12 pt-5 md:w-[95%]"
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+              >
+                <div className="main-text pl-2 max-md:pl-0 font-bold ">
+                  Frequently Asked Questions
+                </div>
+              </Title>
+            </div>
+            <div className="w-full">
+              <hr
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+                className="px-4 pb-2 max-md:!mx-0 md:w-[99%]"
+              />
+              <div
+                className="main-text pb-10 pt-2 md:w-[99%]"
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+              >
+                Please reach us at{" "}
+                <a
+                  href="mailto:design@dominionengg.com"
+                  className="text-blue-500 hover:underline"
+                >
+                  design@dominionengg.com
+                </a>{" "}
+                if you cannot find an answer to your question.
+              </div>
+            </div>
+            <div className="flex justify-center !text-white">
+              <div>
+                <div
+                  className="w-8/12 max-md:w-full"
+                  data-aos-duration="2000"
+                  data-aos={window.innerWidth >= 768 ? "fade-left" : "fade-up"}
+                >
+                  <Collapse items={items} ghost expandIconPosition="right" />
+                </div>
+              </div>
             </div>
           </section>
         </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { Typography, Breadcrumb } from "antd";
 import Construction from "../../assets/infrastructure.jpg";
-import aboutus from "../../assets/public infrastructure.webp";
+import aboutus from "../../assets/services_public.png";
+import offerImage from "../../assets/public infrastructure.webp";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { pageSEO } from "../Seo.config";
@@ -145,6 +146,67 @@ export default function publicInfrastructure() {
                         equipped to recover and rebuild after catastrophic
                         events, reducing long-term economic and social
                         disruption.
+                      </li>
+                    </ul>
+                  </Paragraph>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="my-6">
+            <h1 className="py-4 text-xl uppercase">
+              ABout Public Infrastructure Design
+            </h1>
+            <hr />
+
+            <div className="flex flex-col md:flex-row items-start mt-6">
+              <div className="md:w-1/2">
+                <img
+                  src={offerImage}
+                  alt="OfferImage"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              <div className="md:w-1/2 pl-0 md:pl-6">
+                <div className="pb-2">
+                  <Title className="!text-2xl !text-white pb-4">
+                    What we offer:
+                  </Title>
+                  <Paragraph className="text-2 !text-gray-300">
+                    <ul className="list-disc pl-6">
+                      <li>
+                        Innovative designs for roads, bridges, railways, and
+                        urban infrastructure.
+                      </li>
+                      <li>
+                        Urban planning and public space design tailored to
+                        community needs.
+                      </li>
+                      <li>
+                        Sustainable infrastructure solutions to reduce
+                        environmental impact.
+                      </li>
+                    </ul>
+                  </Paragraph>
+                </div>
+                <div className="pb-2">
+                  <Title className="!text-2xl !text-white pb-4">
+                    How We Help:
+                  </Title>
+                  <Paragraph className="text-2 !text-gray-300">
+                    <ul className="list-disc pl-6">
+                      <li>
+                        Improve Connectivity: Enhance transportation and
+                        infrastructure networks.
+                      </li>
+                      <li>
+                        Promote Community Growth: Develop functional and
+                        aesthetically pleasing public spaces.
+                      </li>
+                      <li>
+                        Ensure Long-Term Value: Deliver durable designs that
+                        stand the test of time.
                       </li>
                     </ul>
                   </Paragraph>

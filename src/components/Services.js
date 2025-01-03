@@ -4,14 +4,14 @@ import { Typography } from "antd";
 import BIM from "../assets/BIM_services.jpg";
 import { Outlet } from "react-router-dom";
 import pipelineServices from "../assets/services_pipeline.webp";
-import oilAndGas from "../assets/oils.webp";
+import oilAndGas from "../assets/Oil&GAS.jpg";
 import aboutus from "../assets/services_Background.avif";
-import publicInfrastructure from "../assets/services_public.png";
+import publicInfrastructure from "../assets/infrastructure.jpg";
 // import Image from "../assets/services_Background.avif";
 import EPC from "../assets/services_EPC.jpeg";
 import Seo from "../components/Seo";
 import { pageSEO } from "../components/Seo.config";
-import consultancy from "../assets/services_construction.avif";
+import consultancy from "../assets/construction-crane-on-construction-site-ai-generative-free-photo.jpeg";
 import { Link } from "react-router-dom";
 const { Title, Paragraph } = Typography;
 const services = [
@@ -58,7 +58,7 @@ const services = [
   },
   {
     icon: <img alt="construction" src={consultancy} className="text-4xl" />,
-    title: "Construction Design",
+    title: "Construction And Infrastructure",
     link: "construction",
     description:
       "At Dominion Engineering Services, we specialize in structural, civil, and architectural designs, delivering precise blueprints tailored to all project types. Our team of experts ensures that every design is not only functional and efficient but also adheres to safety standards and regulatory requirements. We focus on creating innovative solutions that enhance the integrity, durability, and aesthetic appeal of each project, ensuring long-term success.",
@@ -154,7 +154,6 @@ const ServicesPage = () => {
                   >
                     <Title level={2} className="text-3xl font-extrabold ">
                       <span className="text-[#DC143C] font-bold !uppercase">
-                        {" "}
                         {service.title}
                       </span>
                     </Title>

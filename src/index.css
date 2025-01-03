@@ -5,7 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
 }
-/* Centralized typography styles for Ant Design */
+
 .ant-typography,
 .ant-typography-title,
 .ant-typography-secondary,
@@ -13,9 +13,9 @@ body {
 .ant-typography-warning,
 .ant-typography-danger {
   font-family: 'Cabin', 'Lato' !important;
-  font-size: 16px; /* Adjust as per your requirements */
-  line-height: 1.5; /* Adjust for better readability */
-  color: #333; /* Optional: Override default color */
+  font-size: 16px; 
+  line-height: 1.5; 
+  color: #333; 
 }
 
 
@@ -24,12 +24,9 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-/* .App {
-  min-height: 100vh;
-  padding-top: 4rem;
-} */
 
-/* Carousel Styles */
+
+
 .carousel-container {
   height: 100vh;
 }
@@ -63,7 +60,7 @@ body {
   width: 24px;
 }
 
-/* Navigation Arrows */
+
 .carousel-navigation {
   transition: all 0.3s ease-in-out;
   backdrop-filter: blur(4px);
@@ -75,12 +72,12 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Left arrow specific hover effect */
+
 button.carousel-navigation:first-child:hover {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Right arrow specific hover effect */
+
 button.carousel-navigation:last-child:hover {
   transform: translateY(-50%) scale(1.1);
 }
@@ -90,7 +87,7 @@ button.carousel-navigation:last-child:hover {
     display: none;
   }
 }
-/* Kenburns zoom effect */
+
 @keyframes kenburns {
   0% {
     transform: scale(1);
@@ -104,22 +101,22 @@ button.carousel-navigation:last-child:hover {
   animation: continuous-kenburns 20s linear infinite;
 }
 
-/* Optional: Add this if you want the animation to reset for each slide */
+
 .slick-slide.slick-active .animate-kenburns {
   animation: kenburns 50s ease-out both;
 }
 
-/* Make sure the container doesn't clip the zoomed image */
+
 .carousel-container .slick-slide > div {
   overflow: hidden;
 }
 
-/* Optional: Add fade transition between slides */
+
 .carousel-container .slick-slide img {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Smooth transitions */
+
 .carousel-container {
   perspective: 1000px;
 }
@@ -133,7 +130,7 @@ button.carousel-navigation:last-child:hover {
   -webkit-backface-visibility: hidden;
 }
 
-/* Optional: Add a subtle blur effect during transition */
+
 .carousel-container .slick-slide:not(.slick-active) img {
   filter: blur(2px);
 }
@@ -154,20 +151,20 @@ button.carousel-navigation:last-child:hover {
 }
 
 .scrollbar-thin::-webkit-scrollbar {
-  width: 6px; /* Thin scrollbar width */
+  width: 6px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: #888; /* Scroll thumb color */
+  background-color: #888;
   border-radius: 10px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Scroll thumb hover color */
+  background-color: #555;
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Scroll track color */
+  background: #f1f1f1;
   border-radius: 10px;
 }
 .custom-card .ant-card-body{
@@ -184,4 +181,24 @@ button.carousel-navigation:last-child:hover {
 }
 .ant-breadcrumb-separator{
   color: white!important;
+}
+
+.ant-collapse-header {
+  color: white!important;
+  font-size: large;
+}
+.ant-collapse-content-box{
+  background-color: black;
+}
+
+.ant-collapse-header {
+  border: none !important;
+}
+.ant-collapse-header-text{
+  padding-top: 2px!important;
+  border-bottom: 0.5px solid gray;
+  font-size: large;
+}
+.ant-collapse-item{
+  border-color: 1px solid white!important;
 }

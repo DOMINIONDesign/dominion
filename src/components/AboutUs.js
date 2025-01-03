@@ -14,13 +14,13 @@ const AboutUs = () => {
       {/* Hero Section with Background Image */}
       <section className="main-text relative h-80">
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="absolute inset-0">
-          <img src={aboutus} alt="about us" className="w-full h-full" />
+        <div className="absolute inset-0 border-b-2 border-gray-50">
+          {/* <img src={aboutus} alt="about us" className="w-full h-full" /> */}
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Title level={1} className="main-text text-center pt-20">
-              <span className="main-text font-bold text-5xl">
+              <span className="main-text font-bold text-3xl md:text-5xl">
                 About Dominion
               </span>
             </Title>
@@ -48,7 +48,7 @@ const AboutUs = () => {
               <Col xs={24} md={12}>
                 <Paragraph className="main-text">
                   <span className="text-[#DC143C] text-lg font-bold">
-                    Dominion Engineering Services
+                    Dominion Engineering consultancy Pvt Ltd
                   </span>{" "}
                   combines innovation, expertise, and precision to deliver
                   unparalleled design consultancy solutions across a diverse

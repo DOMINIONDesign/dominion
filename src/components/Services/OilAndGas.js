@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Breadcrumb } from "antd";
 import Construction from "../../assets/oil n gas 2.jpg";
 import aboutus from "../../assets/Oil&GAS.jpg";
+import offerImage from "../../assets/360_F_632325277_GVKlz4Pe5xGgYeU4U53AIcsQ4p3vKe5s.jpg";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { pageSEO } from "../Seo.config";
@@ -80,9 +81,7 @@ export default function OilAndGas() {
                 />
               </div>
 
-              {/* Right section - Text */}
               <div className="md:w-1/2 pl-0 md:pl-6">
-                {/* Text sections stacked vertically */}
                 <div className="pb-2">
                   <Title className="!text-2xl !text-white pb-4">
                     Detailed Engineering and Technical Drawings
@@ -145,6 +144,66 @@ export default function OilAndGas() {
                       <li>Detailed Engineering and Technical Drawings.</li>
                     </ul>
                   </Paragraph>
+                </div>
+              </div>
+            </div>
+            <div className="my-6">
+              <h1 className="py-4 text-xl uppercase">ABout Oil & GAs</h1>
+              <hr />
+
+              <div className="flex flex-col md:flex-row items-start mt-6">
+                <div className="md:w-1/2">
+                  <img
+                    src={offerImage}
+                    alt="OfferImage"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+
+                <div className="md:w-1/2 pl-0 md:pl-6">
+                  <div className="pb-2">
+                    <Title className="!text-2xl !text-white pb-4">
+                      What we offer:
+                    </Title>
+                    <Paragraph className="text-2 !text-gray-300">
+                      <ul className="list-disc pl-6">
+                        <li>
+                          Specialized engineering designs for oil and gas
+                          facilities, including refineries, processing plants,
+                          and storage systems.
+                        </li>
+                        <li>
+                          Custom solutions for upstream, midstream, and
+                          downstream operations.
+                        </li>
+                        <li>
+                          Focused designs on safety, sustainability, and
+                          operational efficiency.
+                        </li>
+                      </ul>
+                    </Paragraph>
+                  </div>
+                  <div className="pb-2">
+                    <Title className="!text-2xl !text-white pb-4">
+                      How We Help:
+                    </Title>
+                    <Paragraph className="text-2 !text-gray-300">
+                      <ul className="list-disc pl-6">
+                        <li>
+                          Boost Operational Efficiency: Deliver designs that
+                          optimize production processes.
+                        </li>
+                        <li>
+                          Ensure Safety: Prioritize hazard analysis and
+                          compliance with safety standards.
+                        </li>
+                        <li>
+                          Adapt to Industry Trends: Incorporate sustainable and
+                          advanced energy solutions.
+                        </li>
+                      </ul>
+                    </Paragraph>
+                  </div>
                 </div>
               </div>
             </div>
