@@ -1,12 +1,12 @@
 import React from "react";
-import { Typography, Breadcrumb, Button } from "antd";
+import { Typography, Breadcrumb } from "antd";
 import Construction from "../../assets/qt=q_29.webp";
 import aboutus from "../../assets/BIM.jpg";
 import offerImage from "../../assets/BIM Title image.jpg";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 import { pageSEO } from "../Seo.config";
-import office from "../../assets/Office (1).webp";
+// import office from "../../assets/Office (1).webp";
 const { Title, Paragraph } = Typography;
 
 export default function BIM() {

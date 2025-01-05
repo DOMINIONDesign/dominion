@@ -5,6 +5,7 @@ import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showSecondNavbar, setShowSecondNavbar] = useState(false); // state to control second navbar visibility
@@ -51,14 +52,13 @@ const Navbar = () => {
     // Cleanup the event listener on unmount
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, location.pathname]);
-
-  console.log(isVisible);
   const menuItems = [
     { key: "/", label: "Home" },
     { key: "/about", label: "About Us" },
     { key: "/services", label: "Services" },
     // { key: "/projects", label: "Projects" },
     { key: "/contact", label: "Contact Us" },
+    { key: "/careers", label: "Careers" },
   ];
   return (
     <div>
@@ -75,7 +75,8 @@ const Navbar = () => {
               ? "bg-transparent absolute pt-5"
               : location.pathname === "/services" ||
                 location.pathname === "/about" ||
-                location.pathname === "/contact"
+                location.pathname === "/contact" ||
+                location.pathname === "/careers"
               ? "bg-transparent absolute mt-5"
               : "bg-black pt-5"
           }`}

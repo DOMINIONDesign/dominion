@@ -19,6 +19,7 @@ import OilAndGas from "./components/Services/OilAndGas";
 import PublicInfrastructureDesign from "./components/Services/PublicInfrastructureDesign";
 import EPC from "./components/Services/EPC";
 import ConstructionDesign from "./components/Services/Construction";
+import Careers from "./components/Careers";
 // import Projects from "./components/projects";
 
 function App() {
@@ -148,6 +149,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<AboutUs />} />
+        <Route exact path="/careers" element={<Careers />} />
         <Route exact path="/services" element={<Services />} />
         <Route path="/services/bim" element={<BimServices />} />
         <Route path="/services/pipeline" element={<PipelineServices />} />

@@ -8,7 +8,7 @@ import {
   GlobalOutlined,
   SendOutlined,
 } from "@ant-design/icons";
-import Contact from "../assets/Contact-Us-2.jpg";
+import Contact from "../assets/contact us_title.jpeg";
 import Seo from "./Seo";
 import { pageSEO } from "./Seo.config";
 
@@ -46,7 +46,7 @@ const ContactUs = () => {
       <section className="text-white relative h-80">
         <div className="absolute inset-0 opacity-50"></div>
         <div className="absolute inset-0">
-          <img alt="Contact Us" src={Contact} className="w-full h-full" />
+          <img alt="Contact Us" src={Contact} className="w-full h-full opacity-50" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

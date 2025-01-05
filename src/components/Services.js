@@ -5,7 +5,7 @@ import BIM from "../assets/BIM_services.jpg";
 import { Outlet } from "react-router-dom";
 import pipelineServices from "../assets/services_pipeline.webp";
 import oilAndGas from "../assets/Oil&GAS.jpg";
-import aboutus from "../assets/services_Background.avif";
+import aboutus from "../assets/services_title.jpeg";
 import publicInfrastructure from "../assets/infrastructure.jpg";
 // import Image from "../assets/services_Background.avif";
 import EPC from "../assets/services_EPC.jpeg";
@@ -73,7 +73,7 @@ const ServicesPage = () => {
         <section className="main-text  relative h-80">
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute inset-0">
-            <img alt="about us" src={aboutus} className="w-full h-full" />
+            <img alt="about us" src={aboutus} className="w-full h-full opacity-55" />
           </div>
           <div className="relative z-10 h-full flex flex-col justify-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

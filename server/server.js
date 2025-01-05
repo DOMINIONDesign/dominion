@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-const userRouter = require('./routes/userRouter');
+const userRouter = require("./routes/userRouter");
 const port = process.env.PORT || 8080;
 // Middleware
 app.use(cors());
@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, "../build")));
 
 // // API routes
-app.use('/user', userRouter);
+app.use("/user", userRouter);
 
 // Catch-all route for all other requests (SPA support)
 app.get("*", (req, res) => {

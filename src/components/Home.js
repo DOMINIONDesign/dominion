@@ -540,7 +540,7 @@ const Home = () => {
             <div className="flex justify-center !text-white">
               <div>
                 <div
-                  className="w-8/12 max-md:w-full"
+                  className="w-11/12 max-md:w-full"
                   data-aos-duration="2000"
                   data-aos={window.innerWidth >= 768 ? "fade-left" : "fade-up"}
                 >
