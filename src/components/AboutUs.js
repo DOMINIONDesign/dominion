@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Row, Col } from "antd";
 import aboutus from "../assets/cover_001.jpg";
-import Mission from "../assets/projects.avif";
+import Mission from "../assets/about_us_inside.jpg";
 import { pageSEO } from "./Seo.config";
 import Seo from "./Seo";
 
