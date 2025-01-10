@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Row, Col } from "antd";
-import aboutus from "../assets/about us_title.jpeg";
+import aboutus from "../assets/cover_001.jpg";
 import Mission from "../assets/projects.avif";
 import { pageSEO } from "./Seo.config";
 import Seo from "./Seo";
@@ -15,7 +15,7 @@ const AboutUs = () => {
       <section className="main-text relative h-80">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
-          <img src={aboutus} alt="about us" className="w-full h-full opacity-55" />
+          <img src={aboutus} alt="about us" className="w-full h-full opacity-55 object-cover" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

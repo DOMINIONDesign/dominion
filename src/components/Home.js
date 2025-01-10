@@ -29,6 +29,12 @@ const Home = () => {
 
   const heroSlides = [
     {
+      title: "Building Sustainable Future",
+      subtitle: "Green engineering solutions for modern challenges",
+      bgImage: cover_2,
+      bgClass: "",
+    },
+    {
       title: "Engineering Excellence for Tomorrow",
       subtitle: "Innovative solutions for complex engineering challenges",
       bgImage: cover_1,
@@ -40,12 +46,7 @@ const Home = () => {
       bgImage: cover_3,
       bgClass: "",
     },
-    {
-      title: "Building Sustainable Future",
-      subtitle: "Green engineering solutions for modern challenges",
-      bgImage: cover_2,
-      bgClass: "",
-    },
+    
   ];
 
   const services = [
@@ -288,6 +289,63 @@ const Home = () => {
               </div>
             </div>
           </section>
+
+          <section className="pb-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
+            <div className="w-full">
+              <Title
+                level={2}
+                className="max-w-7xl mb-12 pt-5 md:w-[95%]"
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+              >
+                <span className="main-text pl-2 font-bold">Our Services</span>
+              </Title>
+            </div>
+            <div className="w-full">
+              <hr
+                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
+                data-aos-duration="500"
+                className="p-4 max-md:!mx-3 md:w-[99%]"
+              />
+            </div>
+            <div className="max-w-7xl">
+              <Row gutter={[24, 24]} style={{ marginLeft: 0, marginRight: 0 }}>
+                {services.map((service, index) => (
+                  <Col xs={24} sm={12} lg={8} key={index}>
+                    <Link to={service.link}>
+                      <Card
+                        className="custom-card shadow-lg rounded-s-3xl cursor-pointer shadow-blue-200 h-full hover:shadow-lg transition-shadow duration-300 transform perspective-1000"
+                        bordered={false}
+                        data-aos="flip-left"
+                        data-aos-duration="1000"
+                      >
+                        <div className="relative text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
+                          <div className="relative">
+                            <img
+                              src={service.icon.props.src}
+                              alt={service.title}
+                              className="w-full h-72 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
+                            />
+                            <div className="absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-65 hover:bg-opacity-45 rounded-md px-4 pb-4">
+                              <p className="text-[#70eee8] font-bold text-lg mb-2 text-left">
+                                {service.title}
+                              </p>
+                              <p className="text-white text-md font-semibold text-left">
+                                {service.description}
+                              </p>
+                              <p className="text-[#8cd521] text-md font-bold text-left">
+                                Readmore
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    </Link>
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          </section>
           <section className="py-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full max-md:p-4">
             <div className="w-full">
               <Title
@@ -445,62 +503,6 @@ const Home = () => {
                   />
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="pb-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full">
-            <div className="w-full">
-              <Title
-                level={2}
-                className="max-w-7xl mb-12 pt-5 md:w-[95%]"
-                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
-                data-aos-duration="500"
-              >
-                <span className="main-text pl-2 font-bold">Our Services</span>
-              </Title>
-            </div>
-            <div className="w-full">
-              <hr
-                data-aos={window.innerWidth >= 768 ? "fade-left" : undefined}
-                data-aos-duration="500"
-                className="p-4 max-md:!mx-3 md:w-[99%]"
-              />
-            </div>
-            <div className="max-w-7xl">
-              <Row gutter={[24, 24]} style={{ marginLeft: 0, marginRight: 0 }}>
-                {services.map((service, index) => (
-                  <Col xs={24} sm={12} lg={8} key={index}>
-                    <Link to={service.link}>
-                      <Card
-                        className="custom-card shadow-lg rounded-s-3xl cursor-pointer shadow-blue-200 h-full hover:shadow-lg transition-shadow duration-300 transform perspective-1000"
-                        bordered={false}
-                        data-aos="flip-left"
-                        data-aos-duration="1000"
-                      >
-                        <div className="relative text-center transform-style-preserve-3d transition-transform duration-300 ease-in-out hover:rotate-y-180">
-                          <div className="relative">
-                            <img
-                              src={service.icon.props.src}
-                              alt={service.title}
-                              className="w-full h-72 object-cover rounded-md transform transition-transform duration-300 ease-in-out hover:scale-110"
-                            />
-                            <div className="absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-65 hover:bg-opacity-45 rounded-md px-4 pb-4">
-                              <p className="text-[#70eee8] font-bold text-lg mb-2 text-left">
-                                {service.title}
-                              </p>
-                              <p className="text-white text-md font-semibold text-left">
-                                {service.description}
-                              </p>
-                              <p className="text-[#8cd521] text-md font-bold text-left">
-                                Readmore
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </Card>
-                    </Link>
-                  </Col>
-                ))}
-              </Row>
             </div>
           </section>
           <section className="pb-10 rounded-xl md:w-[95%] md:mx-auto max-md:w-full max-md:px-4">
